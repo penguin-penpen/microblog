@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    {% if title %}
+    <title>{{title}} - Penguin's blog</title>
+    {% else %}
+    <title>microblog</title>
+    {% endif %}
 </head>
 <body>
-
+    <div>Microblog: <a href="/index">Home</a> </div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+         <li>{{message}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
