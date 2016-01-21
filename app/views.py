@@ -76,7 +76,3 @@ def after_login(resp): #rep参数包含了从OpenID提供商返回来的信息
     login_user(user, remember=remember_me)
     #在next页面没有提供的情况下，重定向到首页，否则重定向到next页
     return redirect(request.args.get('next') or url_for('index'))
-
-@app.before_request
-def before_request():
-    g.user = current_user

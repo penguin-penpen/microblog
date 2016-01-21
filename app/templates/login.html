@@ -4,7 +4,7 @@
 {% block content %}
 <h1>Sign in</h1>
 <form action="" method="post" name="login">
-    {{form.hidden_tag()}}
+    {{form.hidden_tag()}} <!form在view中初始化>
     <p>
         Please enter your OpenID:<br>
         {{form.openid(size=80)}}<br>

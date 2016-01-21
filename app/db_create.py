@@ -4,7 +4,7 @@
 from migrate.versioning import api
 from config import SQLALCHEMY_DATABASE_URI
 from config import SQLALCHEMY_MIGRATE_REPO
-from app import db
+from app import db #from folder import variable
 import os.path
 
 db.create_all() #create all tables
