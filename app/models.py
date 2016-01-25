@@ -5,10 +5,11 @@ from hashlib import md5
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nickname = db.Column(db.String(64), index = True, unique=True)
+    password = db.Column(db.String(20))
     email = db.Column(db.String(120), index=True, unique=True)
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    link = db.Column(db.String(100)) #个人链接
+    messages = db.relationship('Message', backref='author', lazy='dynamic') #留言
     about_me = db.Column(db.String(140))
-    last_seen = db.Column(db.DateTime)
 
     def is_authenticated(self):
         return True
@@ -28,15 +29,19 @@ class User(db.Model):
     def __repr__(self): #define how to print db info
         return '<User %r>' % (self.nickname)
 
-    def avatar(self, size):
-        return 'http://www.gravatar.com/avatar/' + md5(self.email).hexdigest() + '?d=mm&s=' + str(size)
+    def getPassword(self):
+        return self.password
 
-class Post(db.Model):
+class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
+    message = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id')) #初始化为外键，因此这个字段是连接到用户上
 
     def __repr__(self):
         return '<Post %r>' % (self.body)
 
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String)
+    timestamp = db.Column(db.DateTime)

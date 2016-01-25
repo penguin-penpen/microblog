@@ -12,5 +12,5 @@ db = SQLAlchemy(app) #create database object
 lm = LoginManager()
 lm.init_app(app) #configure an application
 lm.login_view = 'login' #Flask-Login需要知道哪个函数允许用户登录。
-oid = OpenID(app, os.path.join(basedir, 'tmp')) #Flask-OpenID扩展需要一个存储文件的临时文件夹路径
+#oid = OpenID(app, os.path.join(basedir, 'tmp')) #Flask-OpenID扩展需要一个存储文件的临时文件夹路径
 from app import views, models #from folder import modules

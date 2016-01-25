@@ -5,16 +5,9 @@
 <h1>Sign in</h1>
 <form action="" method="post" name="login">
     {{form.hidden_tag()}} <!form在view中初始化>
-    <p>
-        Please enter your OpenID:<br>
-        {{form.openid(size=80)}}<br>
-        {% for error in form.openid.errors %}
-            <span style="color: red">{{error}}</span>
-        {% endfor %}<br>
-        |{% for pr in providers %}
-            <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name}}');">{{ pr.name }}</a> |
-        {% endfor %}
-    </p>
+    <p>nickname: {{form.nickname(size = 20)}}</p>
+    <p>password: {{form.password(size = 20)}}</p>
+
     <p>{{form.remember_me}} Remember Me</p>
     <p><input type="submit" value="Sign In"> </p>
 </form>
