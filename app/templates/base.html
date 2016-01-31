@@ -7,34 +7,55 @@
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/font-awesome.min.css')}}" type="text/css">
     {% if title %}
     <title>{{title}} - Penguin's blog</title>
     {% else %}
-    <title>microblog</title>
+    <title>Penguin's blog</title>
     {% endif %}
 </head>
 <body>
-    <div>Microblog:
-        <a href="/index">Home</a>
-        {% if g.user.is_authenticated %}
-        | <a href="{{url_for('user', nickname = g.user.nickname) }}">Your Profile</a>
-        | <a href="{{ url_for('logout')}}">Logout</a>
-        {% else %}
-        | <a href="{{url_for('login')}}">Log in</a>
-        | <a href="{{url_for('register')}}"> Register</a>
-        {% endif %}
+<nav class="navbar navbar-default" role="navigation">
+    <div class="col-lg-10">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Penguin's blog</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a href="post.html" class="dropdown-toggle" data-toggle="dropdown">文章<b class="caret"></b> </a></li>
+                <li><a href="#">相册</a> </li>
+            </ul>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/penguin-penpen" target="_blank"><i class="icon-github"></i> </a></li>
+            <li>
+                <a href="http://www.linkedin.com/in/%E4%BA%AC%E8%95%BE-%E6%9D%A8-a88702103?trk=hp-identity-name">Lindedin
+                </a>
+            </li>
+        </div>
     </div>
-    <hr>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-         <li>{{message}}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-    {% block content %}
-    {% endblock %}
+</nav>
+<div class="back">
+    <div class="container bs-docs-container">
+        <div class="col-lg-10" role="main">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+</div>
+<hr>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{message}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
 </body>
 </html>

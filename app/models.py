@@ -43,5 +43,8 @@ class Message(db.Model):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
     body = db.Column(db.String)
-    timestamp = db.Column(db.DateTime)
+    timestamp = db.Column(db.String)
+    tag = db.Column(db.String)
+    info = db.Column(db.String)

@@ -1,0 +1,13 @@
+body{
+    opacity: 0.9;
+}
+.back{
+    width: auto;
+    height: auto;
+    background: url(images/back.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.btn{
+    border-radius: 0px;
+}

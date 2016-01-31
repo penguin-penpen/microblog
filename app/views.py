@@ -3,7 +3,7 @@ from flask import flash, render_template, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from .forms import LoginForm, EditForm, RegisterForm
 from app import app, db, lm
-from .models import User
+from .models import User, Post
 from datetime import datetime
 
 @lm.user_loader
@@ -25,8 +25,9 @@ def index():
         return render_template('index.html',title = 'Home', posts = posts)
     else:
         user = g.user
-        posts = ['test1','test2']
-
+        posts = []
+        for instance in db.session.query(Post).order_by(Post.id):
+            posts.append(instance)
         return render_template('index.html',
                                title = 'Home',
                                user = user,
