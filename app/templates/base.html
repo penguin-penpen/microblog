@@ -16,6 +16,7 @@
     {% endif %}
 </head>
 <body>
+<!-- 导航栏 -->
 <nav class="navbar navbar-default" role="navigation">
     <div class="col-lg-10">
         <div class="navbar-header">
@@ -27,8 +28,9 @@
                 <li><a href="#">相册</a> </li>
             </ul>
         </div>
+        <!-- 用font-awesome显示小图标 -->
         <div class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/penguin-penpen" target="_blank"><i class="icon-github"></i> </a></li>
+            <li><a href="https://github.com/penguin-penpen" target="_blank"><i class="fa fa-github"></i> </a></li>
             <li>
                 <a href="http://www.linkedin.com/in/%E4%BA%AC%E8%95%BE-%E6%9D%A8-a88702103?trk=hp-identity-name">Lindedin
                 </a>
@@ -36,16 +38,18 @@
         </div>
     </div>
 </nav>
-<div class="back">
-    <div class="container bs-docs-container">
-        <div class="col-lg-10" role="main">
+<!-- 内容 -->
+<div class="container-back">
+    <div class="back"></div>
+    <div class="container">
+        <div class="col-lg-10" role="main" id="content">
             {% block content %}
 
             {% endblock %}
         </div>
     </div>
-
 </div>
+
 <hr>
 {% with messages = get_flashed_messages() %}
 {% if messages %}
@@ -56,6 +60,6 @@
 </ul>
 {% endif %}
 {% endwith %}
-
+<footer>footer</footer>
 </body>
 </html>
