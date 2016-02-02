@@ -33,6 +33,15 @@ def index():
                                user = user,
                                posts = posts) #对给定模板传递参数，并翻译模板
 
+"""
+用文章id从数据库查询相应内容并显示
+"""
+@app.route('/post/<post_id>')
+def post(post_id):
+    post = db.session.query(Post).order_by(Post.id).first()
+    return render_template('post.html',
+                           post = post)
+
 @app.route('/register',methods= ['GET','POST'])
 def register():
     if g.user is not None and g.user.is_authenticated:
