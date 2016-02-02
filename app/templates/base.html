@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename ='font-awesome/css/font-awesome.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{url_for('static', filename = 'css/font-awesome.min.css')}}" type="text/css">
     {% if title %}
     <title>{{title}} - Penguin's blog</title>
     {% else %}
@@ -17,27 +17,43 @@
 </head>
 <body>
 <!-- 导航栏 -->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="col-lg-10">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">Penguin's blog</a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav">
-                <li class="dropdown"><a href="post.html" class="dropdown-toggle" data-toggle="dropdown">文章<b class="caret"></b> </a></li>
-                <li><a href="#">相册</a> </li>
-            </ul>
-        </div>
-        <!-- 用font-awesome显示小图标 -->
-        <div class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/penguin-penpen" target="_blank"><i class="fa fa-github"></i> </a></li>
-            <li>
-                <a href="http://www.linkedin.com/in/%E4%BA%AC%E8%95%BE-%E6%9D%A8-a88702103?trk=hp-identity-name">Lindedin
-                </a>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/index">Penguin's blog</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown"><a href="/post" class="dropdown-toggle" data-toggle="dropdown">文章<b class="caret"></b> </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">分离的链接</a></li>
+                </ul>
             </li>
-        </div>
+            <li><a href="#">相册</a> </li>
+        </ul>
+    </div>
+    <!-- social -->
+    <!-- 用font-awesome显示小图标 -->
+    <div class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/penguin-penpen" target="_blank"><i class="icon icon-github"></i> </a></li>
+        <li><a href=mailto:jinglei_yang@outlook.com><i class="icon icon-envelope"></i> </a></li>
+        <li><a href="http://www.linkedin.com/in/%E4%BA%AC%E8%95%BE-%E6%9D%A8-a88702103?trk=hp-identity-name"><i class="icon icon-linkedin"></i></a></li>
     </div>
 </nav>
+<!-- 侧边栏 -->
+<div class="sidebar">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <div class="sidebar-table">
+                <li class="sidebar-row"><a href="#">item</a> </li>
+                <li class="sidebar-row"><a href="#">item</a> </li>
+            </div>
+        </ul>
+    </div>
+</div>
 <!-- 内容 -->
 <div class="container-back">
     <div class="back"></div>
@@ -48,9 +64,9 @@
             {% endblock %}
         </div>
     </div>
+    <div class="panel-footer">Copyright © 2016 Penguin's Blog · Powered by Bootstrap</div>
 </div>
 
-<hr>
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 <ul>
@@ -60,6 +76,6 @@
 </ul>
 {% endif %}
 {% endwith %}
-<footer>footer</footer>
+
 </body>
 </html>
