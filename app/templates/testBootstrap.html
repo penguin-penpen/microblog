@@ -1,17 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{url_for('static',filename='custom.css')}}" type="text/css"/>
-    <link rel="stylesheet" href="{{url_for('static', filename = 'css/font-awesome.min.css')}}" type="text/css">
+{% extends "base.html" %}
+{% block content %}
+<pre class="pre-code">
+        <code class="post-content">
+            (function(factory) {
 
-</head>
-<body>
-<i class="fa fa-camera-retro fa-lg"></i> fa-lg
-<i class="fa fa-camera-retro"></i> fa-camera-retro
-</body>
-</html>
+            // Setup highlight.js for different environments. First is Node.js or
+            // CommonJS.
+            if(typeof exports !== 'undefined') {
+            factory(exports);
+            } else {
+            // Export hljs globally even when using AMD for cases when this script
+            // is loaded with others that may still expect a global hljs.
+            self.hljs = factory({});
+
+            // Finally register the global hljs with AMD.
+            if(typeof define === 'function' && define.amd) {
+            define('hljs', [], function() {
+            return self.hljs;
+            });
+            }
+            }
+
+            }(function(hljs) {
+
+            /* Utility functions */
+
+            function escape(value) {
+            return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+            }
+
+            function tag(node) {
+            return node.nodeName.toLowerCase();
+            }
+
+            function testRe(re, lexeme) {
+            var match = re && re.exec(lexeme);
+            return match && match.index == 0;
+            }
+
+            function isNotHighlighted(language) {
+            return (/^(no-?highlight|plain|text)$/i).test(language);
+            }
+
+            function blockLanguage(block) {
+            var i, match, length,
+            classes = block.className + ' ';
+
+            classes += block.parentNode ? block.parentNode.className : '';
+
+            // language-* takes precedence over non-prefixed class names
+            match = (/\blang(?:uage)?-([\w-]+)\b/i).exec(classes);
+            if (match) {
+            return getLanguage(match[1]) ? match[1] : 'no-highlight';
+            }
+
+            classes = classes.split(/\s+/);
+            for (i = 0, length = classes.length; i < length; i++) {
+            if (getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
+            return classes[i];
+            }
+            }
+            }
+
+            function inherit(parent, obj) {
+            var result = {}, key;
+            for (key in parent)
+            result[key] = parent[key];
+            if (obj)
+            for (key in obj)
+            result[key] = obj[key];
+            return result;
+            }
+
+            /* Stream merging */
+
+            function nodeStream(node) {
+            var result = [];
+            (function _nodeStream(node, offset) {
+            for (var child = node.firstChild; child; child = child.nextSibling) {
+            if (child.nodeType == 3)
+            offset += child.nodeValue.length;
+            else if (child.nodeType == 1) {
+            result.push({
+            event: 'start',
+            offset: offset,
+            node: child
+            });
+            offset = _nodeStream(child, offset);
+            // Prevent void elements from having an end tag that would actually
+            // double them in the output. There are more void elements in HTML
+            // but we list only those realistically expected in code display.
+            if (!tag(child).match(/br|hr|img|input/)) {
+            result.push({
+            event: 'stop',
+            offset: offset,
+            node: child
+            });
+            }
+            }
+            }
+            return offset;
+            })(node, 0);
+            return result;
+            }
+
+            function mergeStreams(original, highlighted, value) {
+            var processed = 0;
+            var result = '';
+            var nodeStack = [];
+
+            function selectStream() {
+            if (!original.length || !highlighted.length) {
+            return original.length ? original : highlighted;
+            }
+            if (original[0].offset != highlighted[0].offset) {
+            return (original[0].offset < highlighted[0].offset) ? original : highlighted;
+            }
+
+            /*
+            To avoid starting the stream just before it should stop the order is
+            ensured that original always starts first and closes last:
+
+            if (event1 == 'start' && event2 == 'start')
+            return original;
+            if (event1 == 'start' && event2 == 'stop')
+            return highlighted;
+            if (event1 == 'stop' && event2 == 'start')
+            return original;
+            if (event1 == 'stop' && event2 == 'stop')
+            return highlighted;
+
+            ... which is collapsed to:
+            */
+            return highlighted[0].event == 'start' ? original : highlighted;
+            }
+
+            function open(node) {
+            function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
+            result += '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
+            }
+
+        </code>
+    </pre>
+{% endblock %}
