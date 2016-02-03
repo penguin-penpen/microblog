@@ -38,7 +38,7 @@ def index():
 """
 @app.route('/post/<post_id>')
 def post(post_id):
-    post = db.session.query(Post).order_by(Post.id).first()
+    post = db.session.query(Post).filter(Post.id == post_id).first()
     return render_template('post.html',
                            post = post)
 

@@ -1,4 +1,5 @@
 body{
+    font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
 }
 .navbar{
     margin-bottom: 0px;
@@ -6,23 +7,23 @@ body{
     background: #333;
 }
 .navbar .nav > li > a{
-    color: aqua;
+    color: #5fdedd;
     background-color: #333;
 }
 .navbar .nav > li > a:hover {
-    color: aqua;
+    color: #5fdedd;
     background-color: #282828;
 }
 .navbar .nav >li >a:active{
-    color: aqua;
+    color: #5fdedd;
     background-color: #282828;
 }
 .navbar .nav >li >a:visited{
-    color: aqua;
+    color: #5fdedd;
     background-color: #333;
 }
 .navbar .nav > li .dropdown:active {
-    color: aqua;
+    color: #5fdedd;
     background-color: #282828;
 }
 .navbar .nav > li .dropdown-menu {
@@ -40,16 +41,17 @@ body{
     margin-right: 5px;
 }
 .nav .navbar-nav .navbar-right >li >a:hover {
-    color: aqua;
+    color: #46a6c0;
     background-color: #282828;
 }
 
 .sidebar{
     float: right;
     display: block;
-    width: 225px;
+    width: 300px;
+    margin-right: 25px;
     background-attachment: fixed;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
     z-index: 3;
 }
 }
@@ -72,20 +74,21 @@ body{
     opacity: 0.35;
     z-index: -1;
 }
-.col-lg-10#content{
+.col-lg-9#content{
     height: 1500px;
     margin-top: 52px;
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 0px;
-    background: rgba(255,255,255,0.8);
+    padding: 15px;
+    background: rgba(255,255,255,0.9);
     z-index: 1;
 
 }
 .container{
     position: relative;
     height: 1500px;
-    margin-left: 0px;
+    margin-left: 5px;
     margin-right: 5px;
     width: auto;
 }
@@ -113,8 +116,45 @@ body{
 .panel-footer{
     background: #333;
     text-align: center;
-    color: aqua;
+    color: 5fdedd;
     z-index: 1;
+}
+.post{
+    margin: 10px;
+}
+.post-header, .post-body{
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.post-header{
+    display: block;
+    color: #333;
+    margin: 0;
+    line-height: 20px;
+}
+.post-title{
+    display: block;
+    font-size: xx-large;
+    color: #52a8bc;
+    font-weight: 500;
+}
+.post-header-buttom{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 30px;
+}
+.post-timestamp{
+    display: block;
+    font-size: small;
+    color: #b2b5ba;
+}
+.post-body{
+    margin: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: medium;
+    color: #3e3e3e;
 }
 .post-content{
     max-height: 500px;
@@ -133,6 +173,7 @@ body{
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
+
 pre{
     padding: 0px;
 }

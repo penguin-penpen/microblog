@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-    {{post.body}}
+    <div class="post">
+        <div class="post-header">
+            <div class="post-title">{{post.title}}</div>
+            <div class="post-header-buttom">
+                <div class="post-timestamp">{{post.timestamp}}</div>
+                <div class="post-tag"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="post-body">
+        {{post.body}}
+    </div>
 </div>
 {% endblock %}
