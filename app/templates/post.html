@@ -5,14 +5,16 @@
         <div class="post-header">
             <div class="post-title">{{post.title}}</div>
             <div class="post-header-buttom">
-                <div class="post-timestamp">{{post.timestamp}}</div>
-                <div class="post-tag"></div>
+                <div class="post-timestamp"> {{post.timestamp}}</div>
+                <div class="post-header-buttom-divider">|</div>
+                <div class="post-tag">{{post.tag}}</div>
             </div>
 
         </div>
+        <div class="post-body">
+            {{post.body}}
+        </div>
     </div>
-    <div class="post-body">
-        {{post.body}}
-    </div>
+
 </div>
 {% endblock %}

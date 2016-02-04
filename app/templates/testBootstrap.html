@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css"/>
-</head>
-<body>
-<div class="post-title">
-    机器学习算法
-</div>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<a class="list-group-item" href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a>
+{% endblock %}

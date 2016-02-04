@@ -39,6 +39,7 @@ body{
 
 .navbar-right{
     margin-right: 5px;
+    font-size: medium;
 }
 .nav .navbar-nav .navbar-right >li >a:hover {
     color: #46a6c0;
@@ -121,6 +122,7 @@ body{
 }
 .post{
     margin: 10px;
+    padding: 10px;
 }
 .post-header, .post-body{
     padding-left: 2em;
@@ -131,6 +133,7 @@ body{
     color: #333;
     margin: 0;
     line-height: 20px;
+    border-bottom: solid 1px #cfd2d8;
 }
 .post-title{
     display: block;
@@ -140,17 +143,33 @@ body{
 }
 .post-header-buttom{
     display: block;
+    padding-left: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
     min-height: 30px;
 }
-.post-timestamp{
-    display: block;
+.post-timestamp:before{
+    font-family: FontAwesome;
+    content: "\f017";
     font-size: small;
+}
+.post-tag:before{
+    font-family: FontAwesome;
+    content: "\f02b";
+    font-size: small;
+    padding-right: 5px;
+}
+.post-timestamp, .post-tag{
+    display: inline-block;
+    padding: 20px;
+    padding-bottom: 0px;
+    font-size: medium;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #b2b5ba;
 }
+
 .post-body{
-    margin: 10px;
+    padding-top: 20px;
     padding-left: 2em;
     padding-right: 2em;
     font-size: medium;
@@ -173,7 +192,12 @@ body{
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
-
+.post-header-buttom-divider{
+    display: inline-block;
+    font-size: medium;
+    color: #b2b5ba;
+;
+}
 pre{
     padding: 0px;
 }

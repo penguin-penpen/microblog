@@ -2,12 +2,208 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa835fb-f77f-4c43-867a-957d632ead69" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/.ruby-version" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/Gemfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/Gemfile.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/_config.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/css/font-awesome-ie7.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/css/font-awesome-ie7.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/font/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/font/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/font/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/font/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/font/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/bootstrap.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/extras.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/font-awesome-ie7.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/_bootstrap.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/_extras.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/font-awesome-ie7.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/CNAME" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/ads/carbon-dark-vertical.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/ads/carbon-light-horizontal.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/ads/carbon-light-vertical.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/brand-license.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/cheatsheet.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/community.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/community/getting-support.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/community/project-milestones.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/community/reporting-bugs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/community/requesting-new-icons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/community/submitting-pull-requests.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/animated-spinner.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/bordered-pulled.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/bulleted-lists.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/button-dropdowns.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/button-groups.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/buttons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/custom.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/form-inputs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/inline-icons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/larger-icons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/navigation.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/new.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/rotated-flipped.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/examples/stacked.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/footer.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/get-started.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons/brand.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons/currency.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons/directional.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons/medical.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons/new.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons/text-editor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons/video-player.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/icons/web-application.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/jumbotron-slider.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/jumbotron.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/license-code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/license.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/navbar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/stripe-ad.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/stripe-social.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/tell-me-thanks.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/tests/rotated-flipped-inside-anchor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/tests/rotated-flipped-inside-btn.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/tests/rotated-flipped.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/tests/stacked-inside-anchor.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/tests/stacked.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/thanks-to.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/whats-new.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_includes/why.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_layouts/base.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_layouts/icon.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_plugins/icon_page_generator.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/_plugins/site.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/css/prettify.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/css/pygments.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/font/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/font/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/font/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/font/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/font/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/bootstrap.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/core.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/extras.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/font-awesome-ie7.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/font-awesome.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/icons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/path.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/_bootstrap.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/_core.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/_extras.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/_icons.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/_path.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/font-awesome-ie7.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/font-awesome/scss/font-awesome.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/ico/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/img/contribution-sample.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/img/fort_awesome.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/img/glyphicons-halflings-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/img/glyphicons-halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/img/icon-flag.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/ZeroClipboard-1.1.7.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/ZeroClipboard-1.1.7.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/backbone.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/bootstrap-2.3.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/bootstrap-222.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/jquery-1.7.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/prettify.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/site.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/js/underscore.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/accordion.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/alerts.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/bootstrap.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/breadcrumbs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/button-groups.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/buttons.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/carousel.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/close.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/code.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/component-animations.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/dropdowns.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/forms.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/grid.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/hero-unit.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/labels-badges.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/layouts.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/media.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/modals.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/navs.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/pager.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/pagination.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/popovers.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/progress-bars.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/reset.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/responsive-1200px-min.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/responsive-767px-max.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/responsive-768px-979px.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/responsive-navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/responsive-utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/responsive.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/scaffolding.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/sprites.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/tables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/thumbnails.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/tooltip.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/type.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/utilities.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/bootstrap-2.3.2/wells.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/lazy.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/responsive-1200px-min.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/responsive-767px-max.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/responsive-768px-979px.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/responsive-navbar.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/responsive.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/site.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/sticky-footer.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/assets/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/cheatsheet.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/community.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/design.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/examples.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/get-started.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/icons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/icons.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/license.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/static/font-awesome/src/whats-new.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.db" afterPath="$PROJECT_DIR$/app.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/app/static/font-awesome/scss/_core.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/app/static/font-awesome/scss/_icons.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/app/static/font-awesome/scss/_mixins.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/app/static/font-awesome/scss/_path.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/app/static/font-awesome/scss/_variables.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/base.html" afterPath="$PROJECT_DIR$/app/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/app/static/font-awesome/less/core.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/custom.css" afterPath="$PROJECT_DIR$/app/static/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/app/static/font-awesome/css/font-awesome.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/app/static/font-awesome/less/font-awesome.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/app/static/font-awesome/css/font-awesome.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/app/static/font-awesome/scss/font-awesome.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/app/static/font-awesome/less/icons.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/app/static/font-awesome/less/mixins.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/app/static/font-awesome/less/path.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/post.html" afterPath="$PROJECT_DIR$/app/templates/post.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/testBootstrap.html" afterPath="$PROJECT_DIR$/app/templates/testBootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views.py" afterPath="$PROJECT_DIR$/app/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/app/static/font-awesome/less/variables.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="microblog.iws" />
@@ -24,7 +220,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/microblog$db_migrate.coverage" NAME="db_migrate Coverage Results" MODIFIED="1454227963610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/microblog$create_db.coverage" NAME="create_db Coverage Results" MODIFIED="1452859493520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
-    <SUITE FILE_PATH="coverage/microblog$Run.coverage" NAME="Run Coverage Results" MODIFIED="1454483993471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/microblog$Run.coverage" NAME="Run Coverage Results" MODIFIED="1454597161113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/microblog$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1452857521318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/microblog$db_create.coverage" NAME="db_create Coverage Results" MODIFIED="1454255810375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -41,7 +237,7 @@
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+              <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
               <folding>
                 <element signature="e#24#104#0" expanded="true" />
               </folding>
@@ -52,10 +248,9 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0769231">
-              <caret line="17" column="7" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.8461537">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
               <folding>
-                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -66,10 +261,10 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/static/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5256917">
-              <caret line="138" column="19" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.8742138">
+              <caret line="159" column="20" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="20" />
               <folding>
-                <element signature="e#2846#3515#0" expanded="false" />
+                <element signature="e#3302#3971#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -78,8 +273,8 @@
       <file leaf-file-name="post.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/post.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0769231">
-              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+            <state vertical-scroll-proportion="-6.1538463">
+              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -88,8 +283,8 @@
       <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/static/bootstrap/css/bootstrap.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="285.18518">
-              <caret line="4" column="111735" selection-start-line="4" selection-start-column="111735" selection-end-line="4" selection-end-column="111735" />
+            <state vertical-scroll-proportion="-2.9629629">
+              <caret line="4" column="47776" selection-start-line="4" selection-start-column="47776" selection-end-line="4" selection-end-column="47776" />
               <folding />
             </state>
           </provider>
@@ -99,7 +294,7 @@
         <entry file="file://$PROJECT_DIR$/app/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="e#24#42#0" expanded="true" />
               </folding>
@@ -110,8 +305,8 @@
       <file leaf-file-name="testBootstrap.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/testBootstrap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.3076923">
-              <caret line="3" column="96" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
+            <state vertical-scroll-proportion="-1.5384616">
+              <caret line="2" column="86" selection-start-line="2" selection-start-column="86" selection-end-line="2" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -120,8 +315,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8461537">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.30769232">
+              <caret line="6" column="17" selection-start-line="4" selection-start-column="0" selection-end-line="6" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -166,9 +361,9 @@
         <option value="$PROJECT_DIR$/app/static/css/custom.css" />
         <option value="$PROJECT_DIR$/app/templates/index.html" />
         <option value="$PROJECT_DIR$/app/views.py" />
+        <option value="$PROJECT_DIR$/app/templates/testBootstrap.html" />
         <option value="$PROJECT_DIR$/app/templates/base.html" />
         <option value="$PROJECT_DIR$/app/templates/post.html" />
-        <option value="$PROJECT_DIR$/app/templates/testBootstrap.html" />
         <option value="$PROJECT_DIR$/app/static/custom.css" />
       </list>
     </option>
@@ -181,9 +376,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="498" />
+    <option name="y" value="433" />
     <option name="width" value="1440" />
-    <option name="height" value="398" />
+    <option name="height" value="463" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -196,7 +391,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -207,30 +402,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="microblog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="microblog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="microblog.io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.CSS" />
@@ -521,7 +693,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="498" width="1440" height="398" extended-state="6" />
+    <frame x="0" y="433" width="1440" height="463" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32970026" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -539,11 +711,11 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="100" y="123" width="1240" height="673" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39948782" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -563,7 +735,7 @@
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/app/views.py</url>
           <line>41</line>
-          <option name="timeStamp" value="44" />
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -573,19 +745,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="45" />
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db_migrate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -618,6 +782,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.0">
@@ -625,9 +792,6 @@
           </first_editor>
           <second_editor />
         </state>
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
@@ -669,6 +833,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.0">
@@ -676,9 +843,6 @@
           </first_editor>
           <second_editor />
         </state>
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/index.html">
@@ -703,6 +867,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor vertical-scroll-proportion="0.4827586">
@@ -710,9 +877,6 @@
           </first_editor>
           <second_editor />
         </state>
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
@@ -894,9 +1058,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="111" selection-start-line="3" selection-start-column="0" selection-end-line="14" selection-end-column="111" />
-          <folding>
-            <element signature="e#44#78#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,62 +1065,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding>
-            <element signature="e#20#30#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
-          <folding>
-            <element signature="e#24#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8461537">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/bootstrap/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="285.18518">
-          <caret line="4" column="111735" selection-start-line="4" selection-start-column="111735" selection-end-line="4" selection-end-column="111735" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="e#24#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30769232">
+          <caret line="6" column="17" selection-start-line="4" selection-start-column="0" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/bootstrap/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.9629629">
+          <caret line="4" column="47776" selection-start-line="4" selection-start-column="47776" selection-end-line="4" selection-end-column="47776" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+          <folding>
+            <element signature="e#24#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/post.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0769231">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        <state vertical-scroll-proportion="-6.1538463">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0769231">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.8461537">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#ul#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -968,18 +1125,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/testBootstrap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3076923">
-          <caret line="3" column="96" selection-start-line="3" selection-start-column="96" selection-end-line="3" selection-end-column="96" />
+        <state vertical-scroll-proportion="-1.5384616">
+          <caret line="2" column="86" selection-start-line="2" selection-start-column="86" selection-end-line="2" selection-end-column="86" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/static/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5256917">
-          <caret line="138" column="19" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.8742138">
+          <caret line="159" column="20" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="20" />
           <folding>
-            <element signature="e#2846#3515#0" expanded="false" />
+            <element signature="e#3302#3971#0" expanded="false" />
           </folding>
         </state>
       </provider>
