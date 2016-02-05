@@ -8,10 +8,10 @@
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename ='font-awesome/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/obsidian.min.css">
+            <link rel="stylesheet" href="{{url_for('static', filename ='font-awesome/css/font-awesome.min.css')}}" type="text/css">
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/obsidian.min.css">
 
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+            <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- highlight.js-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
@@ -55,12 +55,11 @@
 <!-- 侧边栏 -->
 <div class="sidebar">
     <div class="container">
-        <ul class="nav navbar-nav">
-            <div class="sidebar-table">
-                <li class="sidebar-row"><a href="#">item</a> </li>
-                <li class="sidebar-row"><a href="#">item</a> </li>
-            </div>
+        <ul class="nav">
+            <li class="sidebar-row"><a href="#">item</a> </li>
+            <li class="sidebar-row"><a href="#">item</a> </li>
         </ul>
+        <div class="comment-box">comment</div>
     </div>
 </div>
 <!-- 内容 -->
@@ -73,6 +72,7 @@
             {% endblock %}
         </div>
     </div>
+    <footer class="panel-footer">Copyright © 2016 Penguin's Blog · Powered by Bootstrap</>
 </div>
 <!-- 显示错误信息 -->
 {% with messages = get_flashed_messages() %}
@@ -84,6 +84,5 @@
 </ul>
 {% endif %}
 {% endwith %}
-<footer class="panel-footer">Copyright © 2016 Penguin's Blog · Powered by Bootstrap</>
 </body>
 </html>
