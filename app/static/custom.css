@@ -118,11 +118,16 @@ body{
 .panel-footer{
     position: fixed;
     bottom: 0px;
+    padding: 0px;
+    padding-top: 3px;
     width: 100%;
     background: #333;
     text-align: center;
+    font-size: small;
     color: #5fdedd;
     z-index: 1;
+    height: 25px;
+    line-height: 20px;
 }
 .post{
     margin: 10px;
