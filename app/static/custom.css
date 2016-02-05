@@ -21,9 +21,15 @@ body{
 }
 .navbar .nav >li >a:visited{
     color: #5fdedd;
-    background-color: #333;
 }
-.navbar .nav > li .dropdown:active {
+.navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:focus,.navbar-default .navbar-nav>.open>a:hover{
+    color: #5fdedd;
+    background-color:#282828
+}
+.navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:disabled{
+    color: #5fdedd;
+}
+.navbar .nav > li .dropdown-menu:active {
     color: #5fdedd;
     background-color: #282828;
 }
