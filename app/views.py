@@ -5,7 +5,7 @@ from .forms import LoginForm, EditForm, RegisterForm
 from app import app, db, lm
 from .models import User, Post
 from datetime import datetime
-from markdown import markdown
+import markdown2
 
 @lm.user_loader
 def load_user(id):
@@ -40,9 +40,12 @@ def index():
 @app.route('/post/<post_id>')
 def post(post_id):
     post = db.session.query(Post).filter(Post.id == post_id).first()
-    # html_txt = markdown(post.body_markdown, output_format = 'html')
+    html_txt = markdown2.markdown(post.body_markdown)
+    post.body = html_txt
+    db.session.add(post)
+    db.session.commit()
     return render_template('post.html',
-                           post = post,)
+                           post = post)
 
 @app.route('/register',methods= ['GET','POST'])
 def register():

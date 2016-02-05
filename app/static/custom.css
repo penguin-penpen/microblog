@@ -172,9 +172,10 @@ body{
     padding-top: 30px;
     padding-left: 2em;
     padding-right: 2em;
-    font-size: medium;
-    font-weight: 200;
-    color: #3e3e3e;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #505050;
 }
 .post-content{
     max-height: 500px;
