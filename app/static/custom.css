@@ -44,6 +44,13 @@ body{
     color: #46a6c0;
     background-color: #282828;
 }
+.navbar-default .navbar-brand {
+    color: #9facaf;
+    background-color: #333;
+}
+.navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:hover{
+    color: #5fdedd;
+}
 .sidebar{
     /*float: right;*/
     position: absolute;
@@ -54,6 +61,10 @@ body{
     background-attachment: fixed;
     background: rgba(255,255,255,0.9);
     z-index: 5;
+}
+.sidebar-row{
+    border-bottom: 1px solid lightgray;
+    line-height: 30px;
 }
 .container-back{
     position: relative;
@@ -141,6 +152,11 @@ body{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #b2b5ba;
 }
+.post-header-buttom-divider{
+    display: inline-block;
+    font-size: medium;
+    color: #b2b5ba;
+}
 
 .post-body{
     padding-top: 30px;
@@ -150,22 +166,6 @@ body{
     font-size: 17px;
     font-weight: 400;
     color: #505050;
-}
-
-.row{
-    padding-left: 5px;
-    padding-right: 5px;
-    height: 150px;
-}
-.row{
-    border-bottom: 1px solid lightgray;
-}
-.sidebar-row{
-    border-bottom: 1px solid lightgray;
-}
-
-.btn{
-    border-radius: 0px;
 }
 .panel-footer{
     position: absolute;
@@ -182,6 +182,16 @@ body{
     line-height: 20px;
 }
 
+.row{
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 150px;
+    border-bottom: 1px solid lightgray;
+
+}
+.btn{
+    border-radius: 0px;
+}
 .post-content{
     max-height: 500px;
     border: 1px solid #111;
@@ -198,12 +208,6 @@ body{
     background-origin: content-box;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-}
-.post-header-buttom-divider{
-    display: inline-block;
-    font-size: medium;
-    color: #b2b5ba;
-;
 }
 pre{
     padding: 0px;

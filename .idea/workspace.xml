@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa835fb-f77f-4c43-867a-957d632ead69" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.db" afterPath="$PROJECT_DIR$/app.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/base.html" afterPath="$PROJECT_DIR$/app/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/custom.css" afterPath="$PROJECT_DIR$/app/static/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/testBootstrap.html" afterPath="$PROJECT_DIR$/app/templates/testBootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views.py" afterPath="$PROJECT_DIR$/app/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="microblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,11 +48,9 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.3846154">
-              <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+            <state vertical-scroll-proportion="-13.076923">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
@@ -67,30 +60,32 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/static/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47682118">
-              <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.66225165">
+              <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
               <folding>
+                <element signature="e#4#150#0" expanded="false" />
                 <element signature="e#158#231#0" expanded="false" />
-                <element signature="e#253#304#0" expanded="false" />
-                <element signature="e#333#387#0" expanded="false" />
-                <element signature="e#414#468#0" expanded="false" />
-                <element signature="e#496#547#0" expanded="false" />
-                <element signature="e#583#637#0" expanded="false" />
-                <element signature="e#671#689#0" expanded="false" />
-                <element signature="e#729#752#0" expanded="false" />
-                <element signature="e#780#827#0" expanded="false" />
-                <element signature="e#841#890#0" expanded="false" />
-                <element signature="e#935#989#0" expanded="false" />
-                <element signature="e#1946#2013#0" expanded="false" />
-                <element signature="e#2038#2088#0" expanded="false" />
-                <element signature="e#2101#2217#0" expanded="false" />
-                <element signature="e#2229#2319#0" expanded="false" />
-                <element signature="e#2339#2457#0" expanded="false" />
-                <element signature="e#2480#2557#0" expanded="false" />
-                <element signature="e#2574#2675#0" expanded="false" />
-                <element signature="e#2702#2884#0" expanded="false" />
-                <element signature="e#2896#3147#0" expanded="false" />
-                <element signature="e#3634#4303#0" expanded="false" />
+                <element signature="e#1175#1386#0" expanded="false" />
+                <element signature="e#1399#1465#0" expanded="false" />
+                <element signature="e#1481#1603#0" expanded="false" />
+                <element signature="e#1609#1876#0" expanded="false" />
+                <element signature="e#1887#2013#0" expanded="false" />
+                <element signature="e#2031#2196#0" expanded="false" />
+                <element signature="e#2202#2269#0" expanded="false" />
+                <element signature="e#2294#2344#0" expanded="false" />
+                <element signature="e#2357#2473#0" expanded="false" />
+                <element signature="e#2485#2575#0" expanded="false" />
+                <element signature="e#2595#2713#0" expanded="false" />
+                <element signature="e#2736#2813#0" expanded="false" />
+                <element signature="e#2830#2931#0" expanded="false" />
+                <element signature="e#2958#3140#0" expanded="false" />
+                <element signature="e#3168#3241#0" expanded="false" />
+                <element signature="e#3253#3504#0" expanded="false" />
+                <element signature="e#3518#3764#0" expanded="false" />
+                <element signature="e#3770#3880#0" expanded="false" />
+                <element signature="e#3885#3912#0" expanded="false" />
+                <element signature="e#3926#4595#0" expanded="false" />
+                <element signature="e#4599#4620#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -121,8 +116,8 @@
       <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/static/bootstrap/css/bootstrap.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="47776" selection-start-line="4" selection-start-column="47776" selection-end-line="4" selection-end-column="47776" />
+            <state vertical-scroll-proportion="186.05556">
+              <caret line="4" column="74661" selection-start-line="4" selection-start-column="74575" selection-end-line="4" selection-end-column="74661" />
               <folding />
             </state>
           </provider>
@@ -940,14 +935,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/bootstrap/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="47776" selection-start-line="4" selection-start-column="47776" selection-end-line="4" selection-end-column="47776" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flask/lib/python2.7/site-packages/flask/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.044217687">
@@ -1003,42 +990,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3846154">
-          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/bootstrap/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="186.05556">
+          <caret line="4" column="74661" selection-start-line="4" selection-start-column="74575" selection-end-line="4" selection-end-column="74661" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/static/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47682118">
-          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.66225165">
+          <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
           <folding>
+            <element signature="e#4#150#0" expanded="false" />
             <element signature="e#158#231#0" expanded="false" />
-            <element signature="e#253#304#0" expanded="false" />
-            <element signature="e#333#387#0" expanded="false" />
-            <element signature="e#414#468#0" expanded="false" />
-            <element signature="e#496#547#0" expanded="false" />
-            <element signature="e#583#637#0" expanded="false" />
-            <element signature="e#671#689#0" expanded="false" />
-            <element signature="e#729#752#0" expanded="false" />
-            <element signature="e#780#827#0" expanded="false" />
-            <element signature="e#841#890#0" expanded="false" />
-            <element signature="e#935#989#0" expanded="false" />
-            <element signature="e#1946#2013#0" expanded="false" />
-            <element signature="e#2038#2088#0" expanded="false" />
-            <element signature="e#2101#2217#0" expanded="false" />
-            <element signature="e#2229#2319#0" expanded="false" />
-            <element signature="e#2339#2457#0" expanded="false" />
-            <element signature="e#2480#2557#0" expanded="false" />
-            <element signature="e#2574#2675#0" expanded="false" />
-            <element signature="e#2702#2884#0" expanded="false" />
-            <element signature="e#2896#3147#0" expanded="false" />
-            <element signature="e#3634#4303#0" expanded="false" />
+            <element signature="e#1175#1386#0" expanded="false" />
+            <element signature="e#1399#1465#0" expanded="false" />
+            <element signature="e#1481#1603#0" expanded="false" />
+            <element signature="e#1609#1876#0" expanded="false" />
+            <element signature="e#1887#2013#0" expanded="false" />
+            <element signature="e#2031#2196#0" expanded="false" />
+            <element signature="e#2202#2269#0" expanded="false" />
+            <element signature="e#2294#2344#0" expanded="false" />
+            <element signature="e#2357#2473#0" expanded="false" />
+            <element signature="e#2485#2575#0" expanded="false" />
+            <element signature="e#2595#2713#0" expanded="false" />
+            <element signature="e#2736#2813#0" expanded="false" />
+            <element signature="e#2830#2931#0" expanded="false" />
+            <element signature="e#2958#3140#0" expanded="false" />
+            <element signature="e#3168#3241#0" expanded="false" />
+            <element signature="e#3253#3504#0" expanded="false" />
+            <element signature="e#3518#3764#0" expanded="false" />
+            <element signature="e#3770#3880#0" expanded="false" />
+            <element signature="e#3885#3912#0" expanded="false" />
+            <element signature="e#3926#4595#0" expanded="false" />
+            <element signature="e#4599#4620#0" expanded="false" />
           </folding>
         </state>
       </provider>
