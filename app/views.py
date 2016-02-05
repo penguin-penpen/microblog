@@ -148,6 +148,8 @@ def edit():
         form.about_me.data = g.user.about_me
     return render_template('edit.html', form = form)
 
+# 测试页面
 @app.route('/testBootstrap')
 def test():
     return render_template('testBootstrap.html')
+

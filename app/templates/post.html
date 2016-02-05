@@ -11,8 +11,8 @@
             </div>
 
         </div>
-        <div class="post-body">
-            {{post.body.encode("utf-8")}}
+        <div class="post-body font-kai">
+            {{post.body | safe}}
         </div>
     </div>
 

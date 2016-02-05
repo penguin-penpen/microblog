@@ -1,5 +1,5 @@
 body{
-    font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+    /*font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;*/
 }
 .navbar{
     margin-bottom: 0px;
@@ -117,7 +117,7 @@ body{
 .panel-footer{
     background: #333;
     text-align: center;
-    color: 5fdedd;
+    color: #5fdedd;
     z-index: 1;
 }
 .post{
@@ -169,10 +169,11 @@ body{
 }
 
 .post-body{
-    padding-top: 20px;
+    padding-top: 30px;
     padding-left: 2em;
     padding-right: 2em;
     font-size: medium;
+    font-weight: 200;
     color: #3e3e3e;
 }
 .post-content{
