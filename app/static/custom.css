@@ -1,6 +1,6 @@
 body{
     z-index: 0;
-    /*font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;*/
+    font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
 }
 .navbar{
     margin-bottom: 0px;
@@ -133,6 +133,19 @@ body{
     color: #52a8bc;
     font-weight: 500;
 }
+.post-title > a{
+    font-size: xx-large;
+    color: #52a8bc;
+    font-weight: 500;
+}
+.post-title > a:hover{
+    color: #fb6857;
+    text-decoration: none;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
 .post-header-buttom{
     display: block;
     padding-left: 30px;
@@ -169,7 +182,7 @@ body{
     padding-top: 30px;
     padding-left: 2em;
     padding-right: 2em;
-    font-family: 'Helvetica Neue',Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,Helvetica,Arial,sans-serif;
+    /*font-family: 'Helvetica Neue',Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,Helvetica,Arial,sans-serif;*/
     font-size: 17px;
     font-weight: 400;
     color: #505050;
@@ -190,11 +203,21 @@ body{
 }
 
 .index-row{
-    padding-left: 20px;
-    padding-right: 5px;
-    height: 150px;
+    padding: 20px;
+    height: 350px;
     border-bottom: 1px solid lightgray;
 
+}
+.post-info{
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #505050;
+    font-size: medium;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.info-back{
+    background: rgba(226, 232, 239, 0.3);
 }
 .btn{
     border-radius: 0px;
