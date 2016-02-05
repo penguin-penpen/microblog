@@ -22,18 +22,31 @@ def before_request():
 @app.route('/')
 @app.route('/index')
 def index():
-    if g.user is None:
-        return render_template('index.html',title = 'Home', posts = posts)
-    else:
-        user = g.user
+    posts = []
+    for page in range(0,10):
+        try:
+            post = db.session.query(Post).order_by(Post.id)[page]
+        except IndexError:
+            return render_template('index.html',
+                           title = 'Home',
+                           user = user,
+                           posts = posts)
+        posts.append(post)
+    return render_template('index.html',
+                           title = 'Home',
+                           user = user,
+                           posts = posts) #对给定模板传递参数，并翻译模板
+
+@app.route('/index/<i>')
+def index_page(i):
+    for i in range((i - 1) * 10, (i - 1) * 10 + 10):
+        # user = g.user
         posts = []
-        for instance in db.session.query(Post).order_by(Post.id):
-            posts.append(instance)
+        posts.append(db.session.query(Post).order_by(Post.id)[i])
         return render_template('index.html',
                                title = 'Home',
                                user = user,
                                posts = posts) #对给定模板传递参数，并翻译模板
-
 """
 用文章id从数据库查询相应内容并显示
 """
