@@ -47,8 +47,17 @@ class Post(db.Model):
     # body显示储存html格式
     body = db.Column(db.String)
     timestamp = db.Column(db.String)
-    tag = db.Column(db.String)
     info = db.Column(db.String)
     body_markdown = db.Column(db.String)
     counter = db.Column(db.Integer)
     lan_used = db.Column(db.String)
+
+class Tag(db.Model):
+    tag_id = db.Column(db.Integer, primary_key=True)
+    tag_name = db.Column(db.String)
+
+class PostTagRel(db.Model):
+    tag_rel_id = db.Column(db.Integer, primary_key=True)
+    tag_id = db.Column(db.Integer)
+    post_id = db.Column(db.Integer)
+
