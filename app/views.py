@@ -3,7 +3,7 @@ from flask import flash, render_template, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from .forms import LoginForm, EditForm, RegisterForm
 from app import app, db, lm
-from .models import User, Post
+from .models import User, Post, Tag, PostTagRel
 from datetime import datetime
 import markdown
 
@@ -26,6 +26,7 @@ def index():
     for page in range(0,10):
         try:
             post = db.session.query(Post).order_by(Post.id)[page]
+            tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.post_id == 1).first().tag_name
         except IndexError:
             return render_template('index.html',
                            title = 'Home',
@@ -35,7 +36,8 @@ def index():
     return render_template('index.html',
                            title = 'Home',
                            user = user,
-                           posts = posts) #对给定模板传递参数，并翻译模板
+                           posts = posts,
+                           tag = tag) #对给定模板传递参数，并翻译模板
 
 @app.route('/index/<i>')
 def index_page(i):
@@ -43,10 +45,12 @@ def index_page(i):
         # user = g.user
         posts = []
         posts.append(db.session.query(Post).order_by(Post.id)[i])
+        tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.post_id == i).first().tag_name
         return render_template('index.html',
                                title = 'Home',
                                user = user,
-                               posts = posts) #对给定模板传递参数，并翻译模板
+                               posts = posts,
+                               tag = tag) #对给定模板传递参数，并翻译模板
 """
 用文章id从数据库查询相应内容并显示
 """
@@ -57,8 +61,10 @@ def post(post_id):
     post.body = html_txt
     db.session.add(post)
     db.session.commit()
+    tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.post_id == post_id).first().tag_name
     return render_template('post.html',
-                           post = post)
+                           post = post,
+                           tag = tag)
 
 @app.route('/register',methods= ['GET','POST'])
 def register():
