@@ -51,3 +51,4 @@ class Post(db.Model):
     info = db.Column(db.String)
     body_markdown = db.Column(db.String)
     counter = db.Column(db.Integer)
+    lan_used = db.Column(db.String)

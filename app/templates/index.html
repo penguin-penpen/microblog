@@ -5,8 +5,19 @@
 
 {% for post in posts %}
 <div class="index-row">
-    <div class="post-title"><a href={{url_for('post',post_id = post.id)}}>{{post.title}}</a></div>
-    <div class="info"><em>{{post.info}}</em></div>
+    <div class="post-header">
+        <div class="post-title"><a href={{url_for('post',post_id = post.id)}}>{{post.title}}</a></div>
+        <div class="post-header-buttom">
+            <div class="post-timestamp"> {{post.timestamp}}</div>
+            <div class="post-header-buttom-divider">|</div>
+            <div class="post-tag">{{post.tag}}</div>
+            <div class="post-header-buttom-divider">|</div>
+            <div class="post-lan">{{post.lan_used}}</div>
+        </div>
+    </div>
+    <div class="info-back">
+        <div class="post-info">{{post.info}}</div>
+    </div>
 </div>
 {% endfor %}
 {% endblock %}
