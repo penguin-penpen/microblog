@@ -56,6 +56,10 @@ body{
 }
 .navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:hover{
     color: #5fdedd;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
 }
 .sidebar{
     /*float: right;*/
@@ -148,7 +152,7 @@ body{
 }
 .post-header-buttom{
     display: block;
-    padding-left: 30px;
+    padding-left: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
     min-height: 30px;
@@ -164,13 +168,22 @@ body{
     font-size: small;
     padding-right: 5px;
 }
-.post-timestamp, .post-tag{
+.post-lan:before{
+    font-family: FontAwesome;
+    content: "\f121";
+    font-size: small;
+    padding-right: 5px;
+}
+.post-timestamp, .post-tag, .post-lan{
     display: inline-block;
     padding: 20px;
     padding-bottom: 0px;
     font-size: medium;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #b2b5ba;
+}
+.post-timestamp{
+    padding-left: 0px;
 }
 .post-header-buttom-divider{
     display: inline-block;
