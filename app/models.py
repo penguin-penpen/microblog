@@ -59,4 +59,4 @@ class Tag(db.Model):
 class PostTagRel(db.Model):
     tag_rel_id = db.Column(db.Integer, primary_key=True)
     tag_id = db.Column(db.Integer, db.ForeignKey(Tag.tag_id))
-    post_id = db.Column(db.Integer, db.ForeignKey('Post.id'))
+    id = db.Column(db.Integer)

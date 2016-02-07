@@ -26,7 +26,7 @@ def index():
     for page in range(0,10):
         try:
             post = db.session.query(Post).order_by(Post.id)[page]
-            tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.post_id == 1).first().tag_name
+            tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == 1).first().tag_name
         except IndexError:
             return render_template('index.html',
                            title = 'Home',
@@ -45,7 +45,7 @@ def index_page(i):
         # user = g.user
         posts = []
         posts.append(db.session.query(Post).order_by(Post.id)[i])
-        tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.post_id == i).first().tag_name
+        tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == i).first().tag_name
         return render_template('index.html',
                                title = 'Home',
                                user = user,
@@ -61,7 +61,7 @@ def post(post_id):
     post.body = html_txt
     db.session.add(post)
     db.session.commit()
-    tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.post_id == post_id).first().tag_name
+    tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == post_id).first().tag_name
     return render_template('post.html',
                            post = post,
                            tag = tag)
