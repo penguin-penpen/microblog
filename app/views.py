@@ -175,3 +175,6 @@ def edit():
 def test():
     return render_template('testBootstrap.html')
 
+@app.route('/addition')
+def addition():
+    return render_template('addition.html')

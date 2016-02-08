@@ -1,24 +1,1266 @@
 <!-- extend base layout -->
-{% extends 'testBootstrap.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-<script type=text/javascript>
-    $(function() {
-        $("#submitBtn").click(function() {
-            $.ajax({
-                type: "GET",
-                url: $SCRIPT_ROOT + "/echo/",
-                contentType: "application/json; charset=utf-8",
-                data: { echoValue: $('input[name="echoText"]').val() },
-                success: function(data) {
-                    $('#echoResult').text(data.value);
-                }
-            });
-        });
-    });
-</script>
-<strong>Enter a value to echo back:</strong>
-<input type='text' size='10' id='echoText' name='echoText'>
-<button type='button' id='submitBtn' name='submitBtn'>Submit via AJAX</button><br /><br />
-<strong><div id='echoResult'></div></strong>
+<div>
+    SQLite Joins
+    SQLite 的 Joins 子句用于结合两个或多个数据库中表的记录。JOIN 是一种通过共同值来结合两个表中字段的手段。
+
+    SQL 定义了三种主要类型的连接：
+
+    交叉连接 - CROSS JOIN
+    内连接 - INNER JOIN
+    外连接 - OUTER JOIN
+    在我们继续之前，让我们假设有两个表 COMPANY 和 DEPARTMENT。我们已经看到了用来填充 COMPANY 表的 INSERT 语句。现在让我们假设 COMPANY 表的记录列表如下：
+
+    ID          NAME        AGE         ADDRESS     SALARY
+    --------------------------------------------------California20000.0AllenTexas15000.0TeddyNorway20000.065000.0DavidTexas85000.0South45000.0JamesHouston10000.0
+    另一个表是 DEPARTMENT，定义如下：
+
+    CREATE TABLE DEPARTMENT
+    ID INT PRIMARY KEY      NOT NULL
+    DEPT           CHAR NOT NULL
+    EMP_ID         INT      NOT NULL
+    下面是填充 DEPARTMENT 表的 INSERT 语句：
+
+    INSERT INTO DEPARTMENT  EMP_ID
+    VALUES 'IT Billing'
+
+    INSERT INTO DEPARTMENT  EMP_ID
+    VALUES 'Engineering'
+
+    INSERT INTO DEPARTMENT  EMP_ID
+    VALUES 'Finance'
+    最后，我们在 DEPARTMENT 表中有下列的记录列表：
+
+    ID          DEPT        EMP_ID
+    ------------------------------BillingEngineerinFinance
+    交叉连接 - CROSS JOIN
+
+    交叉连接（CROSS JOIN）把第一个表的每一行与第二个表的每一行进行匹配。如果两个输入表分别有 x 和 y 列，则结果表有 x+y 列。由于交叉连接（CROSS JOIN）有可能产生非常大的表，使用时必须谨慎，只在适当的时候使用它们。
+
+    下面是交叉连接（CROSS JOIN）的语法：
+
+    SELECT  FROM table1 CROSS JOIN table2
+    基于上面的表，我们可以写一个交叉连接（CROSS JOIN），如下所示：
+
+    sqlite SELECT EMP_ID DEPT FROM COMPANY CROSS JOIN DEPARTMENT
+    上面的查询会产生以下结果：
+
+    EMP_ID      NAME        DEPT
+    ----------  ----------  ----------
+    1           Paul        IT Billing
+    2           Paul        Engineerin
+    7           Paul        Finance
+    1           Allen       IT Billing
+    2           Allen       Engineerin
+    7           Allen       Finance
+    1           Teddy       IT Billing
+    2           Teddy       Engineerin
+    7           Teddy       Finance
+    1           Mark        IT Billing
+    2           Mark        Engineerin
+    7           Mark        Finance
+    1           David       IT Billing
+    2           David       Engineerin
+    7           David       Finance
+    1           Kim         IT Billing
+    2           Kim         Engineerin
+    7           Kim         Finance
+    1           James       IT Billing
+    2           James       Engineerin
+    7           James       Finance
+    内连接 - INNER JOIN
+
+    内连接（INNER JOIN）根据连接谓词结合两个表（table1 和 table2）的列值来创建一个新的结果表。查询会把 table1 中的每一行与 table2 中的每一行进行比较，找到所有满足连接谓词的行的匹配对。当满足连接谓词时，A 和 B 行的每个匹配对的列值会合并成一个结果行。
+
+    内连接（INNER JOIN）是最常见的连接类型，是默认的连接类型。INNER 关键字是可选的。
+
+    下面是内连接（INNER JOIN）的语法：
+
+    SELECT  FROM table1 INNER JOIN table2 ON conditional_expression
+    为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明内连接（INNER JOIN）条件。这个表达式指定一个或多个列的列表：
+
+    SELECT  FROM table1 JOIN table2 USING  column1
+    自然连接（NATURAL JOIN）类似于 JOIN...USING，只是它会自动测试存在两个表中的每一列的值之间相等值：
+
+    SELECT  FROM table1 NATURAL JOIN table2
+    基于上面的表，我们可以写一个内连接（INNER JOIN），如下所示：
+
+    sqlite SELECT EMP_ID DEPT FROM COMPANY INNER JOIN DEPARTMENT
+    ON COMPANY DEPARTMENTEMP_ID
+    上面的查询会产生以下结果：
+
+    EMP_ID      NAME        DEPT
+    ----------  ----------  ----------
+    1           Paul        IT Billing
+    2           Allen       Engineerin
+    7           James       Finance
+    外连接 - OUTER JOIN
+
+    外连接（OUTER JOIN）是内连接（INNER JOIN）的扩展。虽然 SQL 标准定义了三种类型的外连接：LEFT、RIGHT、FULL，但 SQLite 只支持 左外连接（LEFT OUTER JOIN）。
+
+    外连接（OUTER JOIN）声明条件的方法与内连接（INNER JOIN）是相同的，使用 ON、USING 或 NATURAL 关键字来表达。最初的结果表以相同的方式进行计算。一旦主连接计算完成，外连接（OUTER JOIN）将从一个或两个表中任何未连接的行合并进来，外连接的列使用 NULL 值，将它们附加到结果表中。
+
+    下面是左外连接（LEFT OUTER JOIN）的语法：
+
+    SELECT  FROM table1 LEFT OUTER JOIN table2 ON conditional_expression
+    为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明外连接（OUTER JOIN）条件。这个表达式指定一个或多个列的列表：
+
+    SELECT  FROM table1 LEFT OUTER JOIN table2 USING  column1
+    基于上面的表，我们可以写一个外连接（OUTER JOIN），如下所示：
+
+    sqlite SELECT EMP_ID DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
+    ON COMPANY DEPARTMENTEMP_ID
+    上面的查询会产生以下结果：
+
+    EMP_ID      NAME        DEPT
+    ----------  ----------  ----------
+    1           Paul        IT Billing
+    2           Allen       Engineerin
+    Teddy
+    Mark
+    David
+    Kim
+    7           James       Finance
+    MeasureMeasure
+    Get a free Evernote account to save this article and view it later on any device.
+    Create account
+    sqlalchemy文档资料翻译（八）
+2014-08-18 13:02 96人阅读 评论(0) 收藏 举报
+sqlalchemy学习（8）
+[程序]sqlalchemy文档资料翻译（八） -- 联合查询
+
+在使用 joinedload() 函数创建联接时，我们还可以用多种方式明确的使用联接。例如，为了在 和 Address 之间创建内联接，我们仅需要使用 filter() 他们之间的关联列即可。接下来我们使用该方法来一起载入 和 Address 实体：
+
+>>> sessionquery AddressfilterAddressuser_id\
+         filterAddressemail_address'jack@google.com'
+     print
+
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname,
+users.password AS users_password, addresses.id AS addresses_id,
+addresses.email_address AS addresses_email_address, addresses.user_id AS addresses_user_id
+FROM users, addresses
+WHERE users.id = addresses.user_id AND addresses.email_address = ?
+('jack@google.com',)
+
+'jack''Jack Bean' 'gjffdd' Address'jack@google.com'
+
+或者我们可以使用真正的 JOIN 来创建，最通常的用法是使用 join() 方法：
+
+>>> sessionqueryAddress\
+         filterAddressemail_address'jack@google.com'
+
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users JOIN addresses ON users.id = addresses.user_id
+WHERE addresses.email_address = ?
+('jack@google.com',)
+
+'jack''Jack Bean' 'gjffdd'
+
+由于他们之间只有一个外键，因此 join() 知道如何去联接 和 Address。如果没有任何外键或者存在多个外键，使用如下的方式会使 join() 工作的更好：
+
+queryAddress Addressuser_id  # explicit condition (note the tuple)
+queryaddresses                       # specify relationship from left to right
+queryAddress addresses            # same, with explicit target
+query'addresses'                          # same, using a string
+
+注意当 join() 以明确的对象以及 ON 语句来调用时，我们使用元组参数。这也是为什么多重联接也能正确工作的原因，参考：
+
+sessionquery
+
+
+                        Widget widget_idWidget
+
+以上查询会生成类似于如下形式的 SQL 语句：  <onclause> <onclause> widgets <onclause>.
+
+join() 函数也可以作为一个独立的函数使用，该函数是一个由 SQL expression language 提供的同名的启用 ORM 的版本。该函数接受两至三个参数（左边，右边，可选的 ON 语句）并通过 select_from() 方法被应用于联接中以指定明确的 FROM 语句：
+
+>>> sqlalchemy.orm import
+>>> sessionquery\
+                select_from Address addresses\
+                filterAddressemail_address'jack@google.com'
+
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname, users.password AS users_password
+FROM users JOIN addresses ON users.id = addresses.user_id
+WHERE addresses.email_address = ?
+('jack@google.com',)
+
+'jack''Jack Bean' 'gjffdd'
+
+使用 join() 立即查询集合和属性
+
+joinedload() 方法提供的立即查询功能以及 join() 的联合构造能力可以通过使用 contains_eager() 选项合并在一起。这是基于已经联接至某些相关实体的查询的典型用法（多对一的情况下屡见不鲜），此时我们更倾向于相关实体一步到位的载入到结果对象，而不需要浪费额外的查询，也不需要通过 joinedload() 方法自动联接。
+
+>>> sqlalchemy.orm import contains_eager
+>>> address sessionqueryAddress\
+                Address\
+                filter'jack'\
+                optionscontains_eagerAddress
+         print address address
+
+SELECT users.id AS users_id, users.name AS users_name, users.fullname AS users_fullname,
+users.password AS users_password, addresses.id AS addresses_id,
+addresses.email_address AS addresses_email_address, addresses.user_id AS addresses_user_id
+FROM addresses JOIN users ON users.id = addresses.user_id
+WHERE users.name = ?
+('jack',)
+
+Address'jack@google.com' 'jack''Jack Bean' 'gjffdd'
+Address'j25@yahoo.com' 'jack''Jack Bean' 'gjffdd'
+
+需要注意的是上面的 join 同样也用于将 Address 限制在与 对象名为“jack”相关行上。通过内联接的方式填充 Address.user 属性是非常安全的。无论如何，当在联接上进行过滤相当于在一个集合的特定元素上进行过滤，通过 contains_eager() 方式来填充相关集合可能仅仅只填充部分，因为集合自身已经经过了过滤。
+当使用多表查询，如果同一张表需要被多次访问， SQL 通常需要该表申明一个别名，以区别之。 Query 通过使用 aliased 支持该功能。接下来我们会两次联接 Address 实体，以查询同时拥有两个不同 email 地址的用户：
+
+>>> sqlalchemy.orm import aliased
+>>> adalias1 aliasedAddress
+>>> adalias2 aliasedAddress
+>>> username email1 email2 \
+     sessionquery adalias1email_address adalias2email_address\
+     adalias1 addresses adalias2 addresses\
+     filteradalias1email_address'jack@google.com'\
+     filteradalias2email_address'j25@yahoo.com'
+     print username email1 email2
+
+SELECT users.name AS users_name, addresses_1.email_address AS addresses_1_email_address,
+addresses_2.email_address AS addresses_2_email_address
+FROM users JOIN addresses AS addresses_1 ON users.id = addresses_1.user_id
+JOIN addresses AS addresses_2 ON users.id = addresses_2.user_id
+WHERE addresses_1.email_address = ? AND addresses_2.email_address = ?
+('jack@google.com', 'j25@yahoo.com')
+
+@google.com @yahoo.com
+
+使用子查询
+
+ Query 还适用于生成用于子查询的语句。假设我们希望根据其拥有的 Address 记录数量来载入   对象。此问题最佳的生成 SQL 方法是将 user 通过 addresses 数量对 ids 进行分组，并将其与父属进行联接。在本例中，我们使用左外联接以确保即便没有任何地址的用户也能被正确返回：
+
+SELECT users.*, adr_count.address_count FROM users LEFT OUTER JOIN
+    (SELECT user_id, count(*) AS address_count FROM addresses GROUP BY user_id) AS adr_count
+    ON users.id=adr_count.user_id
+
+通过使用 Query，我们从内到外创建了一个这样的语句。该语句返回一个用于特殊 Query 的 SQL 表达式 - 参考 SQL Expression Language Tutorial：
+
+>>> sqlalchemy.sql import
+>>> sessionqueryAddressuser_id countlabel'address_count'group_byAddressuser_idsubquery
+The keyword generates SQL functions, and the subquery() method on Query produces a SQL expression construct representing a SELECT statement embedded within an alias (it’s actually shorthand for query.statement.alias()).
+
+Once we have our statement, it behaves like a Table construct, such as the one we created for users at the start of this tutorial. The columns on the statement are accessible through an attribute called :
+>>>   count  sessionquery address_count\
+     outerjoin user_idorder_by
+     print  count
+'Ed Jones' 'f8s7ccs'
+'wendy''Wendy Williams' 'foobar'
+'mary''Mary Contrary' 'xxg527'
+'fred''Fred Flinstone' 'blah'
+'jack''Jack Bean' 'gjffdd'
+Selecting Entities from Subqueries
+
+Above, we just selected a result that included a column from a subquery. What if we wanted our subquery to map to an entity ? For this we use aliased() to associate an “alias” of a mapped class to a subquery:
+>>>   sessionqueryAddressfilterAddressemail_address  'j25@yahoo.com'subquery
+>>> adalias  aliasedAddress
+>>>   address  sessionquery adaliasadalias addresses
+     print  address
+'jack''Jack Bean' 'gjffdd' Address'jack@google.com'
+Using EXISTS
+
+The EXISTS keyword in SQL is a boolean operator which returns True if the given expression contains any rows. It may be used in many scenarios in place of joins, and is also useful for locating rows which do not have a corresponding row in a related table.
+
+There is an explicit EXISTS construct, which looks like this:
+>>>  sqlalchemy.sql import exists
+>>>   existswhereAddressuser_id
+>>>    sessionqueryfilter
+     print
+The Query features several operators which make usage of EXISTS automatically. Above, the statement can be expressed along the User.addresses relationship using any():
+>>>    sessionqueryfilteraddresses
+     print
+any() takes criterion as well, to limit the rows matched:
+>>>    sessionquery\
+     filteraddressesAddressemail_addressoogle%'
+     print
+has() is the same operator as any() for many-to-one relationships (note the operator here too, which means “NOT”):
+>>> sessionqueryAddressfilterAddress'jack'
+MeasureMeasure
+Get a free Evernote account to save this article and view it later on any device.
+Create account
+希赛网 · 希赛教育 登录  我的希赛  注册
+希赛网论坛
+成为希赛网会员，教程免费读，视频免费看，试卷免费做
+栏目
+直播课堂视频课程云阅读在线题库问答
+快捷通道
+
+软考论坛
+论坛
+搜索 热搜：系统分析师   信息系统项目管理师   通信工程师   PMP考试   网络工程师
+全国联考计算机学科专业基础综合考前押题密卷
+希赛网 > 论坛首页 > 计算机专业考研 > 考研专业基础课 > 数据结构篇
+发帖
+回帖
+收藏
+0
+回复1570
+阅读
+数据结构篇
+shixian
+2013-08-20 14:59:27
+为什么说程序=数据结构+算法？程序可以看成处理数据的一个过程，而数据形式各种各样，所以非常有必要把数据以及数据间的关系搞清楚，而这正是数据结构。
+
+按我的理解，数据结构就是图的结构，一般的数据结构书都是从线性表开始，然后到树，最后才讲图，我觉得应该先说图。
+
+什么是图？定义为图G={V，E}，它是顶点集和边集的集合，其中顶点集不能为空。这是图的数学定义，我们要从这个定义背后看到它的实质。顶点集V，就是我们在程序中会遇到的‘数据’，我们有时也称结点，比如
+
+int a=1,b=2,c=3;
+
+a,b,c都有相同的数据长度，也有相同的类型。还有复杂点的
+
+struct _myType{
+
+char *name;
+
+int age;
+
+}a,b,c;
+
+像这样的都可看成结点，它们是我们研究的对象。
+
+除此之外，我们还关心顶点间的关系，这就是边集E。其实关系非常简单，无非是有关系和无关系两种，而关系的表现却非常多样，比如，朋友关系，同事关系==。边集形象地表示为两顶点间有没有边，如果两顶点有关系，就说它们直接联通。
+
+OK，按边集的不同，图就有不同的几种形式。
+
+1、边集为空，那G=V，是完全离散的点，做为集合，元素间没有任何关系。
+
+比如
+
+int a=41;
+
+char *name="I love programming!";
+
+double pi=3.14;
+
+显然这些数据找不出任何关系，它们只是在同一个模块内，同一个集合中。这样的情况比较少见，这也是我们学完C语言后所能达到的编码水平，感觉编程太枯燥太无味了，从‘两个数比较大小’到‘三个数比较大小’的程序就会让程序乱得让人受不了。
+
+2、边集为任意的非空形态，这是一种一般的形式，那数据结构就是图。（多对多）
+
+图的算法在数据结构的算法中有非常重要的地位，也就是正因为这个原因。这样的图在现实中也是非常常见，比如我们的交际网，我们现在的Internet等。
+
+拿到这样的数据结构，我们会关心什么？图的连通性，以及最短连通性，最小子图（生成树），最短路径等。以后会了解到这些算法。
+
+另外两种都是特殊情况，也是我们比较熟悉的线性结构和树型结构。
+
+3、边集为某种线性形态，它侧重表达了顶点的有序性。（一对一）
+
+也就是我们常说的线性表。对于这里关系，我们可以定义“《”关系，也就是我们所说的‘前趋’和‘后继’，线性结构是非常理想的结构。
+
+4、边集为某种树型形态。（一对多）
+
+为什么这样的树型结构会这么有用，我还不太清楚，我想可能它体现了我们的思维方式，比如我们的文件以及目录管理，根目录下有文件也有子目录，子目录下也有文件和子目录，再比如我们的学校管理，学校分院系，院下面再分专业，同一专业下还可以分班，同一个班还有不同的学号，这样的管理模式就体现了树型结构。
+
+
+
+这是数据结构的整体体系，写在前面是希望大家能够把握。以后会由浅到深的展示它们的实现、常用的算法以及运用它们能解决的问题。
+
+
+
+回复
+
+发帖
+回帖
+收藏
+本帖标题：数据结构篇
+本帖地址：http://www.educity.cn/luntan/8500.html
+注意：本论坛的任何言论仅代表发言者个人的观点，与希赛网立场无关。请对您的言论负责，遵守中华人民共和国有关法律、法规。如果您的帖子违反希赛网论坛规则，将立即删除。
+
+发表回复
+段落格式
+代码语言
+
+元素路径:
+验证码：
+  看不清？点击图片更换
+回复
+
+相关帖子
+网络管理员必读什么是移动数据通信2007年中国科学院研究生入学考试编译原理提纲[求助]x=1011,求补码是多少？如何学习《接口技术》北大“微型计算机及其接口技术”上机考试题（9月14日下午）2007年中国科学院数据结构考研提纲unix网络管理－DNS域名解析时间复杂度分析系统安全－文章－系统安全（系统管理员篇）操作系统实践考试, 如何考?有谁知道图灵奖是怎么一回事？求救计算机网络原理的复习资料？急二叉排序树上的查找
+码农谷，专业的在线编程网站
+网站首页   关于希赛   工作机会   免责声明   联系希赛
+希赛网 版权所有 © 2001-2016  湘ICP备10203241号-9
+菜鸟教程 -- 学的不仅是技术，更是梦想！
+
+搜索……
+首页 HTML CSS JAVASCRIPT JQUERY BOOTSTRAP SQL MYSQL PHP PYTHON C C++ C# JAVA RUBY 更多……
+SQLite 教程
+SQLite 教程
+SQLite 简介
+SQLite 安装
+SQLite 命令
+SQLite 语法
+SQLite 数据类型
+SQLite 创建数据库
+SQLite 附加数据库
+SQLite 分离数据库
+SQLite 创建表
+SQLite 删除表
+SQLite Insert 语句
+SQLite Select 语句
+SQLite 运算符
+SQLite 表达式
+SQLite Where 子句
+SQLite AND/OR 运算符
+SQLite Update 语句
+SQLite Delete 语句
+SQLite Like 子句
+SQLite Glob 子句
+SQLite Limit 子句
+SQLite Order By
+SQLite Group By
+SQLite Having 子句
+SQLite Distinct 关键字
+
+SQLite 高级教程
+SQLite PRAGMA
+SQLite 约束
+SQLite Joins
+SQLite Unions 子句
+SQLite NULL 值
+SQLite 别名
+SQLite 触发器
+SQLite 索引
+SQLite Indexed By
+SQLite Alter 命令
+SQLite Truncate Table
+SQLite 视图
+SQLite 事务
+SQLite 子查询
+SQLite Autoincrement
+SQLite 注入
+SQLite Explain
+SQLite Vacuum
+SQLite 日期 & 时间
+SQLite 常用函数
+
+SQLite 接口
+SQLite - C/C++
+SQLite - Java
+SQLite - PHP
+SQLite - Perl
+SQLite - Python
+
+
+← SQLite 约束 SQLite Unions 子句 →
+SQLite Joins
+SQLite 的 Joins 子句用于结合两个或多个数据库中表的记录。JOIN 是一种通过共同值来结合两个表中字段的手段。
+SQL 定义了三种主要类型的连接：
+交叉连接 - CROSS JOIN
+内连接 - INNER JOIN
+外连接 - OUTER JOIN
+在我们继续之前，让我们假设有两个表 COMPANY 和 DEPARTMENT。我们已经看到了用来填充 COMPANY 表的 INSERT 语句。现在让我们假设 COMPANY 表的记录列表如下：
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1           Paul        32          California  20000.0
+2           Allen       25          Texas       15000.0
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+6           Kim         22          South-Hall  45000.0
+7           James       24          Houston     10000.0
+另一个表是 DEPARTMENT，定义如下：
+CREATE TABLE DEPARTMENT(
+   ID INT PRIMARY KEY      NOT NULL,
+   DEPT           CHAR(50) NOT NULL,
+   EMP_ID         INT      NOT NULL
+);
+下面是填充 DEPARTMENT 表的 INSERT 语句：
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (1, 'IT Billing', 1 );
+
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (2, 'Engineering', 2 );
+
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (3, 'Finance', 7 );
+最后，我们在 DEPARTMENT 表中有下列的记录列表：
+ID          DEPT        EMP_ID
+----------  ----------  ----------
+1           IT Billing  1
+2           Engineerin  2
+3           Finance     7
+交叉连接 - CROSS JOIN
+交叉连接（CROSS JOIN）把第一个表的每一行与第二个表的每一行进行匹配。如果两个输入表分别有 x 和 y 列，则结果表有 x+y 列。由于交叉连接（CROSS JOIN）有可能产生非常大的表，使用时必须谨慎，只在适当的时候使用它们。
+下面是交叉连接（CROSS JOIN）的语法：
+SELECT ... FROM table1 CROSS JOIN table2 ...
+基于上面的表，我们可以写一个交叉连接（CROSS JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY CROSS JOIN DEPARTMENT;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Paul        Engineerin
+7           Paul        Finance
+1           Allen       IT Billing
+2           Allen       Engineerin
+7           Allen       Finance
+1           Teddy       IT Billing
+2           Teddy       Engineerin
+7           Teddy       Finance
+1           Mark        IT Billing
+2           Mark        Engineerin
+7           Mark        Finance
+1           David       IT Billing
+2           David       Engineerin
+7           David       Finance
+1           Kim         IT Billing
+2           Kim         Engineerin
+7           Kim         Finance
+1           James       IT Billing
+2           James       Engineerin
+7           James       Finance
+内连接 - INNER JOIN
+内连接（INNER JOIN）根据连接谓词结合两个表（table1 和 table2）的列值来创建一个新的结果表。查询会把 table1 中的每一行与 table2 中的每一行进行比较，找到所有满足连接谓词的行的匹配对。当满足连接谓词时，A 和 B 行的每个匹配对的列值会合并成一个结果行。
+内连接（INNER JOIN）是最常见的连接类型，是默认的连接类型。INNER 关键字是可选的。
+下面是内连接（INNER JOIN）的语法：
+SELECT ... FROM table1 [INNER] JOIN table2 ON conditional_expression ...
+为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明内连接（INNER JOIN）条件。这个表达式指定一个或多个列的列表：
+SELECT ... FROM table1 JOIN table2 USING ( column1 ,... ) ...
+自然连接（NATURAL JOIN）类似于 JOIN...USING，只是它会自动测试存在两个表中的每一列的值之间相等值：
+SELECT ... FROM table1 NATURAL JOIN table2...
+基于上面的表，我们可以写一个内连接（INNER JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY INNER JOIN DEPARTMENT
+        ON COMPANY.ID = DEPARTMENT.EMP_ID;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Allen       Engineerin
+7           James       Finance
+外连接 - OUTER JOIN
+外连接（OUTER JOIN）是内连接（INNER JOIN）的扩展。虽然 SQL 标准定义了三种类型的外连接：LEFT、RIGHT、FULL，但 SQLite 只支持 左外连接（LEFT OUTER JOIN）。
+外连接（OUTER JOIN）声明条件的方法与内连接（INNER JOIN）是相同的，使用 ON、USING 或 NATURAL 关键字来表达。最初的结果表以相同的方式进行计算。一旦主连接计算完成，外连接（OUTER JOIN）将从一个或两个表中任何未连接的行合并进来，外连接的列使用 NULL 值，将它们附加到结果表中。
+下面是左外连接（LEFT OUTER JOIN）的语法：
+SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ...
+为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明外连接（OUTER JOIN）条件。这个表达式指定一个或多个列的列表：
+SELECT ... FROM table1 LEFT OUTER JOIN table2 USING ( column1 ,... ) ...
+基于上面的表，我们可以写一个外连接（OUTER JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
+        ON COMPANY.ID = DEPARTMENT.EMP_ID;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Allen       Engineerin
+            Teddy
+            Mark
+            David
+            Kim
+7           James       Finance
+← SQLite 约束 SQLite Unions 子句 →
+
+
+关注微信
+ 移动版
+分类导航
+HTML / CSS
+JavaScript
+服务端
+数据库
+移动端
+XML 教程
+ASP.NET
+Web Services
+开发工具
+网站建设
+
+Advertisement
+
+
+在线实例
+·HTML 实例
+·CSS 实例
+·JavaScript 实例
+·Ajax 实例
+·jQuery 实例
+·XML 实例
+·Java 实例
+字符集&工具
+· HTML 字符集设置
+· HTML ASCII 字符集
+· HTML ISO-8859-1
+· HTML 实体符号
+· HTML 拾色器
+· JSON 格式化工具
+最新更新
+· 菜鸟前端工具的...
+· js 刷新当前页面
+· js 截取字符串
+· HTML 颜色混搭
+· AngularJS 动画
+· AngularJS 服务(...
+· AngularJS Selec...
+站点信息
+· 意见反馈
+· 免责声明
+· 关于我们
+· 文章归档
+关注微信
+
+Copyright © 2013-2016 菜鸟教程  runoob.com All Rights Reserved. 备案号：闽ICP备15012807号-1
+反馈 菜鸟教程 -- 学的不仅是技术，更是梦想！
+
+搜索……
+首页 HTML CSS JAVASCRIPT JQUERY BOOTSTRAP SQL MYSQL PHP PYTHON C C++ C# JAVA RUBY 更多……
+SQLite 教程
+SQLite 教程
+SQLite 简介
+SQLite 安装
+SQLite 命令
+SQLite 语法
+SQLite 数据类型
+SQLite 创建数据库
+SQLite 附加数据库
+SQLite 分离数据库
+SQLite 创建表
+SQLite 删除表
+SQLite Insert 语句
+SQLite Select 语句
+SQLite 运算符
+SQLite 表达式
+SQLite Where 子句
+SQLite AND/OR 运算符
+SQLite Update 语句
+SQLite Delete 语句
+SQLite Like 子句
+SQLite Glob 子句
+SQLite Limit 子句
+SQLite Order By
+SQLite Group By
+SQLite Having 子句
+SQLite Distinct 关键字
+
+SQLite 高级教程
+SQLite PRAGMA
+SQLite 约束
+SQLite Joins
+SQLite Unions 子句
+SQLite NULL 值
+SQLite 别名
+SQLite 触发器
+SQLite 索引
+SQLite Indexed By
+SQLite Alter 命令
+SQLite Truncate Table
+SQLite 视图
+SQLite 事务
+SQLite 子查询
+SQLite Autoincrement
+SQLite 注入
+SQLite Explain
+SQLite Vacuum
+SQLite 日期 & 时间
+SQLite 常用函数
+
+SQLite 接口
+SQLite - C/C++
+SQLite - Java
+SQLite - PHP
+SQLite - Perl
+SQLite - Python
+
+
+← SQLite 约束 SQLite Unions 子句 →
+SQLite Joins
+SQLite 的 Joins 子句用于结合两个或多个数据库中表的记录。JOIN 是一种通过共同值来结合两个表中字段的手段。
+SQL 定义了三种主要类型的连接：
+交叉连接 - CROSS JOIN
+内连接 - INNER JOIN
+外连接 - OUTER JOIN
+在我们继续之前，让我们假设有两个表 COMPANY 和 DEPARTMENT。我们已经看到了用来填充 COMPANY 表的 INSERT 语句。现在让我们假设 COMPANY 表的记录列表如下：
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1           Paul        32          California  20000.0
+2           Allen       25          Texas       15000.0
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+6           Kim         22          South-Hall  45000.0
+7           James       24          Houston     10000.0
+另一个表是 DEPARTMENT，定义如下：
+CREATE TABLE DEPARTMENT(
+   ID INT PRIMARY KEY      NOT NULL,
+   DEPT           CHAR(50) NOT NULL,
+   EMP_ID         INT      NOT NULL
+);
+下面是填充 DEPARTMENT 表的 INSERT 语句：
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (1, 'IT Billing', 1 );
+
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (2, 'Engineering', 2 );
+
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (3, 'Finance', 7 );
+最后，我们在 DEPARTMENT 表中有下列的记录列表：
+ID          DEPT        EMP_ID
+----------  ----------  ----------
+1           IT Billing  1
+2           Engineerin  2
+3           Finance     7
+交叉连接 - CROSS JOIN
+交叉连接（CROSS JOIN）把第一个表的每一行与第二个表的每一行进行匹配。如果两个输入表分别有 x 和 y 列，则结果表有 x+y 列。由于交叉连接（CROSS JOIN）有可能产生非常大的表，使用时必须谨慎，只在适当的时候使用它们。
+下面是交叉连接（CROSS JOIN）的语法：
+SELECT ... FROM table1 CROSS JOIN table2 ...
+基于上面的表，我们可以写一个交叉连接（CROSS JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY CROSS JOIN DEPARTMENT;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Paul        Engineerin
+7           Paul        Finance
+1           Allen       IT Billing
+2           Allen       Engineerin
+7           Allen       Finance
+1           Teddy       IT Billing
+2           Teddy       Engineerin
+7           Teddy       Finance
+1           Mark        IT Billing
+2           Mark        Engineerin
+7           Mark        Finance
+1           David       IT Billing
+2           David       Engineerin
+7           David       Finance
+1           Kim         IT Billing
+2           Kim         Engineerin
+7           Kim         Finance
+1           James       IT Billing
+2           James       Engineerin
+7           James       Finance
+内连接 - INNER JOIN
+内连接（INNER JOIN）根据连接谓词结合两个表（table1 和 table2）的列值来创建一个新的结果表。查询会把 table1 中的每一行与 table2 中的每一行进行比较，找到所有满足连接谓词的行的匹配对。当满足连接谓词时，A 和 B 行的每个匹配对的列值会合并成一个结果行。
+内连接（INNER JOIN）是最常见的连接类型，是默认的连接类型。INNER 关键字是可选的。
+下面是内连接（INNER JOIN）的语法：
+SELECT ... FROM table1 [INNER] JOIN table2 ON conditional_expression ...
+为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明内连接（INNER JOIN）条件。这个表达式指定一个或多个列的列表：
+SELECT ... FROM table1 JOIN table2 USING ( column1 ,... ) ...
+自然连接（NATURAL JOIN）类似于 JOIN...USING，只是它会自动测试存在两个表中的每一列的值之间相等值：
+SELECT ... FROM table1 NATURAL JOIN table2...
+基于上面的表，我们可以写一个内连接（INNER JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY INNER JOIN DEPARTMENT
+        ON COMPANY.ID = DEPARTMENT.EMP_ID;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Allen       Engineerin
+7           James       Finance
+外连接 - OUTER JOIN
+外连接（OUTER JOIN）是内连接（INNER JOIN）的扩展。虽然 SQL 标准定义了三种类型的外连接：LEFT、RIGHT、FULL，但 SQLite 只支持 左外连接（LEFT OUTER JOIN）。
+外连接（OUTER JOIN）声明条件的方法与内连接（INNER JOIN）是相同的，使用 ON、USING 或 NATURAL 关键字来表达。最初的结果表以相同的方式进行计算。一旦主连接计算完成，外连接（OUTER JOIN）将从一个或两个表中任何未连接的行合并进来，外连接的列使用 NULL 值，将它们附加到结果表中。
+下面是左外连接（LEFT OUTER JOIN）的语法：
+SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ...
+为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明外连接（OUTER JOIN）条件。这个表达式指定一个或多个列的列表：
+SELECT ... FROM table1 LEFT OUTER JOIN table2 USING ( column1 ,... ) ...
+基于上面的表，我们可以写一个外连接（OUTER JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
+        ON COMPANY.ID = DEPARTMENT.EMP_ID;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Allen       Engineerin
+            Teddy
+            Mark
+            David
+            Kim
+7           James       Finance
+← SQLite 约束 SQLite Unions 子句 →
+
+
+关注微信
+ 移动版
+分类导航
+HTML / CSS
+JavaScript
+服务端
+数据库
+移动端
+XML 教程
+ASP.NET
+Web Services
+开发工具
+网站建设
+
+Advertisement
+
+
+在线实例
+·HTML 实例
+·CSS 实例
+·JavaScript 实例
+·Ajax 实例
+·jQuery 实例
+·XML 实例
+·Java 实例
+字符集&工具
+· HTML 字符集设置
+· HTML ASCII 字符集
+· HTML ISO-8859-1
+· HTML 实体符号
+· HTML 拾色器
+· JSON 格式化工具
+最新更新
+· 菜鸟前端工具的...
+· js 刷新当前页面
+· js 截取字符串
+· HTML 颜色混搭
+· AngularJS 动画
+· AngularJS 服务(...
+· AngularJS Selec...
+站点信息
+· 意见反馈
+· 免责声明
+· 关于我们
+· 文章归档
+关注微信
+
+Copyright © 2013-2016 菜鸟教程  runoob.com All Rights Reserved. 备案号：闽ICP备15012807号-1
+反馈 菜鸟教程 -- 学的不仅是技术，更是梦想！
+
+搜索……
+首页 HTML CSS JAVASCRIPT JQUERY BOOTSTRAP SQL MYSQL PHP PYTHON C C++ C# JAVA RUBY 更多……
+SQLite 教程
+SQLite 教程
+SQLite 简介
+SQLite 安装
+SQLite 命令
+SQLite 语法
+SQLite 数据类型
+SQLite 创建数据库
+SQLite 附加数据库
+SQLite 分离数据库
+SQLite 创建表
+SQLite 删除表
+SQLite Insert 语句
+SQLite Select 语句
+SQLite 运算符
+SQLite 表达式
+SQLite Where 子句
+SQLite AND/OR 运算符
+SQLite Update 语句
+SQLite Delete 语句
+SQLite Like 子句
+SQLite Glob 子句
+SQLite Limit 子句
+SQLite Order By
+SQLite Group By
+SQLite Having 子句
+SQLite Distinct 关键字
+
+SQLite 高级教程
+SQLite PRAGMA
+SQLite 约束
+SQLite Joins
+SQLite Unions 子句
+SQLite NULL 值
+SQLite 别名
+SQLite 触发器
+SQLite 索引
+SQLite Indexed By
+SQLite Alter 命令
+SQLite Truncate Table
+SQLite 视图
+SQLite 事务
+SQLite 子查询
+SQLite Autoincrement
+SQLite 注入
+SQLite Explain
+SQLite Vacuum
+SQLite 日期 & 时间
+SQLite 常用函数
+
+SQLite 接口
+SQLite - C/C++
+SQLite - Java
+SQLite - PHP
+SQLite - Perl
+SQLite - Python
+
+
+← SQLite 约束 SQLite Unions 子句 →
+SQLite Joins
+SQLite 的 Joins 子句用于结合两个或多个数据库中表的记录。JOIN 是一种通过共同值来结合两个表中字段的手段。
+SQL 定义了三种主要类型的连接：
+交叉连接 - CROSS JOIN
+内连接 - INNER JOIN
+外连接 - OUTER JOIN
+在我们继续之前，让我们假设有两个表 COMPANY 和 DEPARTMENT。我们已经看到了用来填充 COMPANY 表的 INSERT 语句。现在让我们假设 COMPANY 表的记录列表如下：
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1           Paul        32          California  20000.0
+2           Allen       25          Texas       15000.0
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+6           Kim         22          South-Hall  45000.0
+7           James       24          Houston     10000.0
+另一个表是 DEPARTMENT，定义如下：
+CREATE TABLE DEPARTMENT(
+   ID INT PRIMARY KEY      NOT NULL,
+   DEPT           CHAR(50) NOT NULL,
+   EMP_ID         INT      NOT NULL
+);
+下面是填充 DEPARTMENT 表的 INSERT 语句：
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (1, 'IT Billing', 1 );
+
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (2, 'Engineering', 2 );
+
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (3, 'Finance', 7 );
+最后，我们在 DEPARTMENT 表中有下列的记录列表：
+ID          DEPT        EMP_ID
+----------  ----------  ----------
+1           IT Billing  1
+2           Engineerin  2
+3           Finance     7
+交叉连接 - CROSS JOIN
+交叉连接（CROSS JOIN）把第一个表的每一行与第二个表的每一行进行匹配。如果两个输入表分别有 x 和 y 列，则结果表有 x+y 列。由于交叉连接（CROSS JOIN）有可能产生非常大的表，使用时必须谨慎，只在适当的时候使用它们。
+下面是交叉连接（CROSS JOIN）的语法：
+SELECT ... FROM table1 CROSS JOIN table2 ...
+基于上面的表，我们可以写一个交叉连接（CROSS JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY CROSS JOIN DEPARTMENT;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Paul        Engineerin
+7           Paul        Finance
+1           Allen       IT Billing
+2           Allen       Engineerin
+7           Allen       Finance
+1           Teddy       IT Billing
+2           Teddy       Engineerin
+7           Teddy       Finance
+1           Mark        IT Billing
+2           Mark        Engineerin
+7           Mark        Finance
+1           David       IT Billing
+2           David       Engineerin
+7           David       Finance
+1           Kim         IT Billing
+2           Kim         Engineerin
+7           Kim         Finance
+1           James       IT Billing
+2           James       Engineerin
+7           James       Finance
+内连接 - INNER JOIN
+内连接（INNER JOIN）根据连接谓词结合两个表（table1 和 table2）的列值来创建一个新的结果表。查询会把 table1 中的每一行与 table2 中的每一行进行比较，找到所有满足连接谓词的行的匹配对。当满足连接谓词时，A 和 B 行的每个匹配对的列值会合并成一个结果行。
+内连接（INNER JOIN）是最常见的连接类型，是默认的连接类型。INNER 关键字是可选的。
+下面是内连接（INNER JOIN）的语法：
+SELECT ... FROM table1 [INNER] JOIN table2 ON conditional_expression ...
+为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明内连接（INNER JOIN）条件。这个表达式指定一个或多个列的列表：
+SELECT ... FROM table1 JOIN table2 USING ( column1 ,... ) ...
+自然连接（NATURAL JOIN）类似于 JOIN...USING，只是它会自动测试存在两个表中的每一列的值之间相等值：
+SELECT ... FROM table1 NATURAL JOIN table2...
+基于上面的表，我们可以写一个内连接（INNER JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY INNER JOIN DEPARTMENT
+        ON COMPANY.ID = DEPARTMENT.EMP_ID;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Allen       Engineerin
+7           James       Finance
+外连接 - OUTER JOIN
+外连接（OUTER JOIN）是内连接（INNER JOIN）的扩展。虽然 SQL 标准定义了三种类型的外连接：LEFT、RIGHT、FULL，但 SQLite 只支持 左外连接（LEFT OUTER JOIN）。
+外连接（OUTER JOIN）声明条件的方法与内连接（INNER JOIN）是相同的，使用 ON、USING 或 NATURAL 关键字来表达。最初的结果表以相同的方式进行计算。一旦主连接计算完成，外连接（OUTER JOIN）将从一个或两个表中任何未连接的行合并进来，外连接的列使用 NULL 值，将它们附加到结果表中。
+下面是左外连接（LEFT OUTER JOIN）的语法：
+SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ...
+为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明外连接（OUTER JOIN）条件。这个表达式指定一个或多个列的列表：
+SELECT ... FROM table1 LEFT OUTER JOIN table2 USING ( column1 ,... ) ...
+基于上面的表，我们可以写一个外连接（OUTER JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
+        ON COMPANY.ID = DEPARTMENT.EMP_ID;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Allen       Engineerin
+            Teddy
+            Mark
+            David
+            Kim
+7           James       Finance
+← SQLite 约束 SQLite Unions 子句 →
+
+
+关注微信
+ 移动版
+分类导航
+HTML / CSS
+JavaScript
+服务端
+数据库
+移动端
+XML 教程
+ASP.NET
+Web Services
+开发工具
+网站建设
+
+Advertisement
+
+
+在线实例
+·HTML 实例
+·CSS 实例
+·JavaScript 实例
+·Ajax 实例
+·jQuery 实例
+·XML 实例
+·Java 实例
+字符集&工具
+· HTML 字符集设置
+· HTML ASCII 字符集
+· HTML ISO-8859-1
+· HTML 实体符号
+· HTML 拾色器
+· JSON 格式化工具
+最新更新
+· 菜鸟前端工具的...
+· js 刷新当前页面
+· js 截取字符串
+· HTML 颜色混搭
+· AngularJS 动画
+· AngularJS 服务(...
+· AngularJS Selec...
+站点信息
+· 意见反馈
+· 免责声明
+· 关于我们
+· 文章归档
+关注微信
+
+Copyright © 2013-2016 菜鸟教程  runoob.com All Rights Reserved. 备案号：闽ICP备15012807号-1
+反馈 菜鸟教程 -- 学的不仅是技术，更是梦想！
+
+搜索……
+首页 HTML CSS JAVASCRIPT JQUERY BOOTSTRAP SQL MYSQL PHP PYTHON C C++ C# JAVA RUBY 更多……
+SQLite 教程
+SQLite 教程
+SQLite 简介
+SQLite 安装
+SQLite 命令
+SQLite 语法
+SQLite 数据类型
+SQLite 创建数据库
+SQLite 附加数据库
+SQLite 分离数据库
+SQLite 创建表
+SQLite 删除表
+SQLite Insert 语句
+SQLite Select 语句
+SQLite 运算符
+SQLite 表达式
+SQLite Where 子句
+SQLite AND/OR 运算符
+SQLite Update 语句
+SQLite Delete 语句
+SQLite Like 子句
+SQLite Glob 子句
+SQLite Limit 子句
+SQLite Order By
+SQLite Group By
+SQLite Having 子句
+SQLite Distinct 关键字
+
+SQLite 高级教程
+SQLite PRAGMA
+SQLite 约束
+SQLite Joins
+SQLite Unions 子句
+SQLite NULL 值
+SQLite 别名
+SQLite 触发器
+SQLite 索引
+SQLite Indexed By
+SQLite Alter 命令
+SQLite Truncate Table
+SQLite 视图
+SQLite 事务
+SQLite 子查询
+SQLite Autoincrement
+SQLite 注入
+SQLite Explain
+SQLite Vacuum
+SQLite 日期 & 时间
+SQLite 常用函数
+
+SQLite 接口
+SQLite - C/C++
+SQLite - Java
+SQLite - PHP
+SQLite - Perl
+SQLite - Python
+
+
+← SQLite 约束 SQLite Unions 子句 →
+SQLite Joins
+SQLite 的 Joins 子句用于结合两个或多个数据库中表的记录。JOIN 是一种通过共同值来结合两个表中字段的手段。
+SQL 定义了三种主要类型的连接：
+交叉连接 - CROSS JOIN
+内连接 - INNER JOIN
+外连接 - OUTER JOIN
+在我们继续之前，让我们假设有两个表 COMPANY 和 DEPARTMENT。我们已经看到了用来填充 COMPANY 表的 INSERT 语句。现在让我们假设 COMPANY 表的记录列表如下：
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1           Paul        32          California  20000.0
+2           Allen       25          Texas       15000.0
+3           Teddy       23          Norway      20000.0
+4           Mark        25          Rich-Mond   65000.0
+5           David       27          Texas       85000.0
+6           Kim         22          South-Hall  45000.0
+7           James       24          Houston     10000.0
+另一个表是 DEPARTMENT，定义如下：
+CREATE TABLE DEPARTMENT(
+   ID INT PRIMARY KEY      NOT NULL,
+   DEPT           CHAR(50) NOT NULL,
+   EMP_ID         INT      NOT NULL
+);
+下面是填充 DEPARTMENT 表的 INSERT 语句：
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (1, 'IT Billing', 1 );
+
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (2, 'Engineering', 2 );
+
+INSERT INTO DEPARTMENT (ID, DEPT, EMP_ID)
+VALUES (3, 'Finance', 7 );
+最后，我们在 DEPARTMENT 表中有下列的记录列表：
+ID          DEPT        EMP_ID
+----------  ----------  ----------
+1           IT Billing  1
+2           Engineerin  2
+3           Finance     7
+交叉连接 - CROSS JOIN
+交叉连接（CROSS JOIN）把第一个表的每一行与第二个表的每一行进行匹配。如果两个输入表分别有 x 和 y 列，则结果表有 x+y 列。由于交叉连接（CROSS JOIN）有可能产生非常大的表，使用时必须谨慎，只在适当的时候使用它们。
+下面是交叉连接（CROSS JOIN）的语法：
+SELECT ... FROM table1 CROSS JOIN table2 ...
+基于上面的表，我们可以写一个交叉连接（CROSS JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY CROSS JOIN DEPARTMENT;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Paul        Engineerin
+7           Paul        Finance
+1           Allen       IT Billing
+2           Allen       Engineerin
+7           Allen       Finance
+1           Teddy       IT Billing
+2           Teddy       Engineerin
+7           Teddy       Finance
+1           Mark        IT Billing
+2           Mark        Engineerin
+7           Mark        Finance
+1           David       IT Billing
+2           David       Engineerin
+7           David       Finance
+1           Kim         IT Billing
+2           Kim         Engineerin
+7           Kim         Finance
+1           James       IT Billing
+2           James       Engineerin
+7           James       Finance
+内连接 - INNER JOIN
+内连接（INNER JOIN）根据连接谓词结合两个表（table1 和 table2）的列值来创建一个新的结果表。查询会把 table1 中的每一行与 table2 中的每一行进行比较，找到所有满足连接谓词的行的匹配对。当满足连接谓词时，A 和 B 行的每个匹配对的列值会合并成一个结果行。
+内连接（INNER JOIN）是最常见的连接类型，是默认的连接类型。INNER 关键字是可选的。
+下面是内连接（INNER JOIN）的语法：
+SELECT ... FROM table1 [INNER] JOIN table2 ON conditional_expression ...
+为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明内连接（INNER JOIN）条件。这个表达式指定一个或多个列的列表：
+SELECT ... FROM table1 JOIN table2 USING ( column1 ,... ) ...
+自然连接（NATURAL JOIN）类似于 JOIN...USING，只是它会自动测试存在两个表中的每一列的值之间相等值：
+SELECT ... FROM table1 NATURAL JOIN table2...
+基于上面的表，我们可以写一个内连接（INNER JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY INNER JOIN DEPARTMENT
+        ON COMPANY.ID = DEPARTMENT.EMP_ID;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Allen       Engineerin
+7           James       Finance
+外连接 - OUTER JOIN
+外连接（OUTER JOIN）是内连接（INNER JOIN）的扩展。虽然 SQL 标准定义了三种类型的外连接：LEFT、RIGHT、FULL，但 SQLite 只支持 左外连接（LEFT OUTER JOIN）。
+外连接（OUTER JOIN）声明条件的方法与内连接（INNER JOIN）是相同的，使用 ON、USING 或 NATURAL 关键字来表达。最初的结果表以相同的方式进行计算。一旦主连接计算完成，外连接（OUTER JOIN）将从一个或两个表中任何未连接的行合并进来，外连接的列使用 NULL 值，将它们附加到结果表中。
+下面是左外连接（LEFT OUTER JOIN）的语法：
+SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ...
+为了避免冗余，并保持较短的措辞，可以使用 USING 表达式声明外连接（OUTER JOIN）条件。这个表达式指定一个或多个列的列表：
+SELECT ... FROM table1 LEFT OUTER JOIN table2 USING ( column1 ,... ) ...
+基于上面的表，我们可以写一个外连接（OUTER JOIN），如下所示：
+sqlite> SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
+        ON COMPANY.ID = DEPARTMENT.EMP_ID;
+上面的查询会产生以下结果：
+EMP_ID      NAME        DEPT
+----------  ----------  ----------
+1           Paul        IT Billing
+2           Allen       Engineerin
+            Teddy
+            Mark
+            David
+            Kim
+7           James       Finance
+← SQLite 约束 SQLite Unions 子句 →
+
+
+关注微信
+ 移动版
+分类导航
+HTML / CSS
+JavaScript
+服务端
+数据库
+移动端
+XML 教程
+ASP.NET
+Web Services
+开发工具
+网站建设
+
+Advertisement
+
+
+在线实例
+·HTML 实例
+·CSS 实例
+·JavaScript 实例
+·Ajax 实例
+·jQuery 实例
+·XML 实例
+·Java 实例
+字符集&工具
+· HTML 字符集设置
+· HTML ASCII 字符集
+· HTML ISO-8859-1
+· HTML 实体符号
+· HTML 拾色器
+· JSON 格式化工具
+最新更新
+· 菜鸟前端工具的...
+· js 刷新当前页面
+· js 截取字符串
+· HTML 颜色混搭
+· AngularJS 动画
+· AngularJS 服务(...
+· AngularJS Selec...
+站点信息
+· 意见反馈
+· 免责声明
+· 关于我们
+· 文章归档
+关注微信
+
+Copyright © 2013-2016 菜鸟教程  runoob.com All Rights Reserved. 备案号：闽ICP备15012807号-1
+反馈 
+</div>
 {% endblock %}
