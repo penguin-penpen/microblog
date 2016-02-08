@@ -184,6 +184,25 @@ body{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #b2b5ba;
 }
+.tag-btn{
+    font-size: medium;
+    /*background-color: rgba(110,199,220,0.3);*/
+}
+.tag-btn >a{
+    text-decoration: none;
+    color: #52a8bc;
+}
+.btn-link:hover{
+    text-decoration: none;
+}
+.tag-btn >a:hover{
+    color: #fb6857;
+    text-decoration: none;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
 .post-timestamp{
     padding-left: 0px;
 }
@@ -225,7 +244,7 @@ body{
 }
 .post-info{
     padding-top: 10px;
-    padding-left: 10px;
+    padding-left: 2em;
     color: #505050;
     font-size: medium;
     font-weight: 300;
@@ -233,6 +252,9 @@ body{
 }
 .info-back{
     background: rgba(226, 232, 239, 0.3);
+}
+.post-info-body{
+    /*padding-left: 10px;*/
 }
 .btn{
     border-radius: 0px;

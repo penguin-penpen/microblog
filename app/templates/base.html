@@ -19,7 +19,7 @@
     <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css"/>
     <!-- 测试js-->
-    <!--<script type="text/javascript" src="{{url_for('static', filename ='test.js') }}"></script>-->
+    <script type="text/javascript" src="{{url_for('static', filename ='test.js') }}"></script>
 
     {% if title %}
     <title>{{title}} - Penguin's blog</title>
@@ -73,6 +73,7 @@
             {% block content %}
 
             {% endblock %}
+            <div class="auto-load"></div>
         </div>
     </div>
 </div>

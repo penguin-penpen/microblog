@@ -23,21 +23,26 @@ def before_request():
 @app.route('/index')
 def index():
     posts = []
-    for page in range(0,10):
+    tags = {}
+    for page in range(1,11):
+        tags.setdefault(page, [])
         try:
             post = db.session.query(Post).order_by(Post.id)[page]
-            tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == 1).first().tag_name
+            for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == page).first().tag_id.split(',')):
+                tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
+                tags[page].append(tag)
         except IndexError:
             return render_template('index.html',
-                           title = 'Home',
-                           user = user,
-                           posts = posts)
+                                   title = 'Home',
+                                   user = user,
+                                   posts = posts,
+                                   tags = tags)
         posts.append(post)
     return render_template('index.html',
                            title = 'Home',
                            user = user,
                            posts = posts,
-                           tag = tag) #对给定模板传递参数，并翻译模板
+                           tags = tags) #对给定模板传递参数，并翻译模板
 
 @app.route('/index/<i>')
 def index_page(i):
@@ -50,7 +55,7 @@ def index_page(i):
                                title = 'Home',
                                user = user,
                                posts = posts,
-                               tag = tag) #对给定模板传递参数，并翻译模板
+                               tags = tags) #对给定模板传递参数，并翻译模板
 """
 用文章id从数据库查询相应内容并显示
 """
@@ -61,10 +66,14 @@ def post(post_id):
     post.body = html_txt
     db.session.add(post)
     db.session.commit()
-    tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == post_id).first().tag_name
+    tags = []
+    # tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == post_id).first().tag_name
+    for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
+                tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
+                tags.append(tag)
     return render_template('post.html',
                            post = post,
-                           tag = tag)
+                           tags = tags)
 
 @app.route('/register',methods= ['GET','POST'])
 def register():
