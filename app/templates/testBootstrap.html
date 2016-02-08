@@ -1,28 +1,11 @@
- <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">...</nav>
-<div class="sidebar"></div>
-<div class="container-back">
-    <div class="back"></div>
-    <div class="container">
-        <div class="col-lg-9" role="main" id="content">
-            <div>
-                <div class="post">
-                    <div class="post-header">
-                        <div class="post-title"></div>
-                        <div class="post-header-buttom">
-                            <div class="post-timestamp"></div>
-                            <div class="post-header-buttom-divider">|</div>
-                            <div class="post-tag"></div>
-                        </div>
-
-                    </div>
-                    <div class="post-body font-kai">
-                        content
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-    
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
+    <script type=text/javascript>
+        var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+</head>
+<body>
+{% block content %}{% endblock %}
+</body>

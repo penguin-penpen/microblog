@@ -15,8 +15,11 @@
     <!-- highlight.js-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-
+    <!-- jQuery-->
+    <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css"/>
+    <!-- 测试js-->
+    <!--<script type="text/javascript" src="{{url_for('static', filename ='test.js') }}"></script>-->
 
     {% if title %}
     <title>{{title}} - Penguin's blog</title>
@@ -72,7 +75,6 @@
             {% endblock %}
         </div>
     </div>
-    <footer class="panel-footer">Copyright © 2016 Penguin's Blog · Powered by Bootstrap</>
 </div>
 <!-- 显示错误信息 -->
 {% with messages = get_flashed_messages() %}
@@ -84,5 +86,6 @@
 </ul>
 {% endif %}
 {% endwith %}
+<footer class="panel-footer">Copyright © 2016 Penguin's Blog · Powered by Bootstrap></footer>
 </body>
 </html>
