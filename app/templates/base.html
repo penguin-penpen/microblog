@@ -7,14 +7,19 @@
     <meta http-equiv="Content-Type" content="text/html">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename ='font-awesome/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/obsidian.min.css">
 
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{{url_for('static', filename ='bootstrap/css/bootstrap.min.css')}}" type="text/css">
+
+    <link rel="stylesheet" href="{{url_for('static', filename ='font-awesome/css/font-awesome.min.css')}}" type="text/css">
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/obsidian.min.css">-->
+
+    <!--<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+    <script type=text/javascript src="{{url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
     <!-- highlight.js-->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>-->
+    <!--<script>hljs.initHighlightingOnLoad();</script>-->
     <!-- jQuery-->
     <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css"/>

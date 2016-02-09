@@ -19,25 +19,34 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()
 
+"""
+tags为字典，{post_id : tag_id}
+倒序输出post
+"""
 @app.route('/')
 @app.route('/index')
 def index():
+    page_count = 0
     posts = []
     tags = {}
-    for page in range(1,11):
-        tags.setdefault(page, [])
+    # 根据加载次数计算相对post_id
+    for post_id in range(10 * page_count + 1, 10 * page_count + 11):
+        tags.setdefault(post_id, [])
         try:
-            post = db.session.query(Post).order_by(Post.id)[page]
-            for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == page).first().tag_id.split(',')):
+            post = db.session.query(Post).order_by(Post.id)[post_id - 1]
+            posts.append(post)
+
+            for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
                 tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
-                tags[page].append(tag)
+                tags[post_id].append(tag)
         except IndexError:
+            posts.reverse()
             return render_template('index.html',
                                    title = 'Home',
                                    user = user,
                                    posts = posts,
                                    tags = tags)
-        posts.append(post)
+    posts.reverse()
     return render_template('index.html',
                            title = 'Home',
                            user = user,

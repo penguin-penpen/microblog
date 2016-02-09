@@ -13,7 +13,7 @@
             <div class="post-lan">{{post.lan_used}}</div>
             <div class="post-header-buttom-divider">|</div>
             <div class="post-tag">
-                 {% for tag in tags[post.id - 1] %}
+                 {% for tag in tags[post.id] %}
                 <button class="btn-link tag-btn"><a href="#"> {{tag}}</a></button>
                  {% endfor %}
             </div>
