@@ -14,19 +14,6 @@ $(document).ready(function(){//DOM的onload事件
             $("#back-to-top").hide();
             //     alert("back");
         }
-        //点击返回顶部
-        var clickState = 0;
-        $("#back-to-top").click(function() {
-            $(document.body).animate({scrollTop: 0}, 800);
-            return false;
-            //clickState = 0;
-            //$(document).animate({scrollTop:0}, 500);
-            //$(document).scrollTop(0);
-            //if(clickState == 0){
-            //    $('html, body').animate({scrollTop:0}, 500);
-            //    clickState = 1;
-            //}
-        });
 
         //主页滑动加载更多
         if(document.title == 'Home - Penguin\'s blog'){
@@ -38,8 +25,15 @@ $(document).ready(function(){//DOM的onload事件
         }
     });
 
+    $("#back-to-top").click(function(e) {
+        e.preventDefault();
+        $("body, html").animate({scrollTop: 0}, 300);
+    });
 
 });
+
+
+
 //获取滚动条的位置
 function getScrollTop() {
     var scrollPos;
