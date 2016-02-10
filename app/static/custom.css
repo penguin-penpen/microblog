@@ -279,11 +279,17 @@ body{
 pre{
     padding: 0px;
 }
+/*返回顶端按钮*/
 #back-to-top{
     /*float: right;*/
     position: fixed;
-    bottom: 100px;
-    right: 100px;
-    background-color: #a31515;
+    bottom: 50px;
+    right: 260px;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    background: #dbdfe5;
+    font-size: larger;
+    color: #acafb4;
     z-index: 5;
 }

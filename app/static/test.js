@@ -14,12 +14,16 @@ $(document).ready(function(){//DOM的onload事件
             $("#back-to-top").hide();
             //     alert("back");
         }
-
+        //点击返回顶部
+        $("#back-to-top").click(function() {
+            $(document).scrollTop(0);
+        });
         //滑动加载更多
         var len = $(document).height();
         if (getScrollTop() > 0.7 * len){
             load("index-addition", ".col-lg-9");
         }
+
     });
 
 
