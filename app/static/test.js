@@ -18,12 +18,15 @@ $(document).ready(function(){//DOM的onload事件
         $("#back-to-top").click(function() {
             $(document).scrollTop(0);
         });
-        //滑动加载更多
-        var len = $(document).height();
-        if (getScrollTop() > 0.7 * len){
-            load("index-addition", ".col-lg-9");
-        }
 
+        //主页滑动加载更多
+        if(document.title == 'Home - Penguin\'s blog'){
+            var len = $(document).height();
+            if (getScrollTop() > 0.7 * len){
+                //alert("show!");
+                load("index-addition", ".col-lg-9");
+            }
+        }
     });
 
 
@@ -46,13 +49,13 @@ function getScrollTop() {
     return scrollPos;
 }
 /*
-* load()加载更多内容
-* url：加载的页面
-* position：加载内容所放的元素
-*/
+ * load()加载更多内容
+ * url：加载的页面
+ * position：加载内容所放的元素
+ */
 function load(url, position){
     //alert("show");
-    $.get(url, function(data) {//利用jquery的get方法得到table.html内容
+    $.get(url, function(data) {//function为回调函数，把请求url后得到的结果作为data参数
 
         $(position).append(data);//用append方法追加内容到mypage元素。
 

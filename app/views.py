@@ -9,6 +9,11 @@ import markdown
 
 # 初始化首页加载次数
 index_add_counter = 0
+# 获取文章分类
+classification = db.session.query(Tag.tag_name).order_by(Tag.tag_id).all()
+# for tag in db.session.query(Tag.tag_name).order_by(Tag.tag_id).all():
+#     global classification
+#     classification.append(str(tag))
 
 @lm.user_loader
 def load_user(id):
@@ -31,6 +36,7 @@ tags为字典，{post_id : tag_id}
 def index():
     # 声明全局变量
     global  index_add_counter
+    global classification
     index_add_counter = 0
     posts = []
     tags = {}
@@ -49,6 +55,7 @@ def index():
             index_add_counter += 1
             return render_template('index.html',
                                    title = 'Home',
+                                   classification = classification,
                                    user = user,
                                    posts = posts,
                                    tags = tags)
@@ -56,22 +63,43 @@ def index():
     index_add_counter += 1
     return render_template('index.html',
                            title = 'Home',
+                           classification = classification,
                            user = user,
                            posts = posts,
                            tags = tags) #对给定模板传递参数，并翻译模板
 
-@app.route('/index/<i>')
-def index_page(i):
-    for i in range((i - 1) * 10, (i - 1) * 10 + 10):
-        # user = g.user
-        posts = []
-        posts.append(db.session.query(Post).order_by(Post.id)[i])
-        tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == i).first().tag_name
-        return render_template('index.html',
-                               title = 'Home',
-                               user = user,
-                               posts = posts,
-                               tags = tags) #对给定模板传递参数，并翻译模板
+@app.route('/index-addition')
+def index_addition():
+    # 声明全局变量
+    global index_add_counter
+    posts = []
+    tags = {}
+    # 根据加载次数计算相对post_id
+    for post_id in range(10 * index_add_counter + 1, 10 * index_add_counter + 11):
+        tags.setdefault(post_id, [])
+        try:
+            post = db.session.query(Post).order_by(db.desc(Post.id))[post_id - 1]
+            posts.append(post)
+
+            for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
+                tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
+                tags[post_id].append(tag)
+        except IndexError:
+            # posts.reverse()
+            index_add_counter += 1
+            return render_template('index-addition.html',
+                                   title = 'Home',
+                                   user = user,
+                                   posts = posts,
+                                   tags = tags)
+    # posts.reverse()
+    index_add_counter += 1
+    return render_template('index-addition.html',
+                           title = 'Home',
+                           user = user,
+                           posts = posts,
+                           tags = tags) #对给定模板传递参数，并翻译模板
+
 """
 用文章id从数据库查询相应内容并显示
 """
@@ -88,8 +116,19 @@ def post(post_id):
                 tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
                 tags.append(tag)
     return render_template('post.html',
+                           title = Post.title,
+                           classification = classification,
                            post = post,
                            tags = tags)
+
+# 归档页面
+# 用js实现不加载按时间排序或按类别排序
+@app.route('/archives')
+def archives():
+    return render_template('archives.html',
+                           title = 'Archives',
+                           post = post)
+
 
 @app.route('/register',methods= ['GET','POST'])
 def register():
@@ -204,34 +243,3 @@ def test():
 def addition():
     return render_template('addition.html')
 
-@app.route('/index-addition')
-def index_addition():
-    # 声明全局变量
-    global index_add_counter
-    posts = []
-    tags = {}
-    # 根据加载次数计算相对post_id
-    for post_id in range(10 * index_add_counter + 1, 10 * index_add_counter + 11):
-        tags.setdefault(post_id, [])
-        try:
-            post = db.session.query(Post).order_by(db.desc(Post.id))[post_id - 1]
-            posts.append(post)
-
-            for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
-                tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
-                tags[post_id].append(tag)
-        except IndexError:
-            # posts.reverse()
-            index_add_counter += 1
-            return render_template('index-addition.html',
-                                   title = 'Home',
-                                   user = user,
-                                   posts = posts,
-                                   tags = tags)
-    # posts.reverse()
-    index_add_counter += 1
-    return render_template('index-addition.html',
-                           title = 'Home',
-                           user = user,
-                           posts = posts,
-                           tags = tags) #对给定模板传递参数，并翻译模板

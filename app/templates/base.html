@@ -40,16 +40,20 @@
     </div>
     <div>
         <ul class="nav navbar-nav">
-            <li><a href="/post" class="dropdown-toggle" data-toggle="dropdown">文章<b class="caret"></b> </a>
+            <!-- 下拉菜单，通过类别查看文章 -->
+            <li><a href="/post" class="dropdown-toggle" data-toggle="dropdown">Archives<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
+                    {% for class in classification %}
+                    <li><a href="url_for('archives/classification',class = class)">{{class}}</a></li>
+                    {% endfor %}
+
                     <li class="divider"></li>
                     <li><a href="#">分离的链接</a></li>
                 </ul>
             </li>
-            <li><a href="#">相册</a> </li>
+            <!-- 相册 -->
+            <li><a href="#">Illustrations</a> </li>
+            <li><a href="#">About</a> </li>
         </ul>
     </div>
     <!-- social -->
@@ -83,9 +87,9 @@
     </div>
 </div>
 <!-- 浮动按钮 -->
-    <button class="btn" id="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-    </button>
+<button class="btn" id="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+</button>
 <!-- 显示错误信息 -->
 {% with messages = get_flashed_messages() %}
 {% if messages %}

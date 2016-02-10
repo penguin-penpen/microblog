@@ -7,13 +7,14 @@
             <div class="post-header-buttom">
                 <div class="post-timestamp"> {{post.timestamp}}</div>
                 <div class="post-header-buttom-divider">|</div>
+                <div class="post-lan">{{post.lan_used}}</div>
+                <div class="post-header-buttom-divider">|</div>
                 <div class="post-tag">
-                    <div class="post-lan">{{post.lan_used}}</div>
-                    <div class="post-header-buttom-divider">|</div>
                     {% for tag in tags %}
                     <button class="btn-link tag-btn"><a href="#"> {{tag}}</a></button>
                     {% endfor %}
                 </div>
+
             </div>
         </div>
         <div class="post-body font-kai">

@@ -11,6 +11,7 @@ body{
 .navbar .nav > li > a{
     color: #5fdedd;
     background-color: #333;
+    font-size: medium;
 }
 .navbar .nav > li > a:hover {
     color: #5fdedd;
