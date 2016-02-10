@@ -44,7 +44,7 @@
             <li><a href="/post" class="dropdown-toggle" data-toggle="dropdown">Archives<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
                     {% for class in classification %}
-                    <li><a href="url_for('archives/classification',class = class)">{{class}}</a></li>
+                    <li><a href="url_for('archives/classification',class = class)">{{class[0]}}</a></li>
                     {% endfor %}
 
                     <li class="divider"></li>

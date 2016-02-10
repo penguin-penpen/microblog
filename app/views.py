@@ -11,6 +11,7 @@ import markdown
 index_add_counter = 0
 # 获取文章分类
 classification = db.session.query(Tag.tag_name).order_by(Tag.tag_id).all()
+# classification = [r(0).encode('utf8') for r in classification]
 # for tag in db.session.query(Tag.tag_name).order_by(Tag.tag_id).all():
 #     global classification
 #     classification.append(str(tag))
