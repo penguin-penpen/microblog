@@ -15,8 +15,17 @@ $(document).ready(function(){//DOM的onload事件
             //     alert("back");
         }
         //点击返回顶部
+        var clickState = 0;
         $("#back-to-top").click(function() {
-            $(document).scrollTop(0);
+            $(document.body).animate({scrollTop: 0}, 800);
+            return false;
+            //clickState = 0;
+            //$(document).animate({scrollTop:0}, 500);
+            //$(document).scrollTop(0);
+            //if(clickState == 0){
+            //    $('html, body').animate({scrollTop:0}, 500);
+            //    clickState = 1;
+            //}
         });
 
         //主页滑动加载更多
