@@ -51,6 +51,7 @@ class Post(db.Model):
     body_markdown = db.Column(db.String)
     counter = db.Column(db.Integer)
     lan_used = db.Column(db.String)
+    series = db.Column(db.String)
 
 class Tag(db.Model):
     tag_id = db.Column(db.Integer, primary_key=True)
