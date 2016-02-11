@@ -3,7 +3,7 @@ from flask import flash, render_template, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from .forms import LoginForm, EditForm, RegisterForm
 from app import app, db, lm
-from .models import User, Post, Tag, PostTagRel
+from .models import User, Post, Tag, PostTagRel, Series
 from datetime import datetime
 import markdown
 import markdown2
@@ -11,7 +11,7 @@ import markdown2
 # 初始化首页加载次数
 index_add_counter = 0
 # 获取文章分类
-classification = db.session.query(Tag.tag_name).order_by(Tag.tag_id).all()
+series = db.session.query(Series.series_name).order_by(Series.series_id).all()
 # classification = [r(0).encode('utf8') for r in classification]
 # for tag in db.session.query(Tag.tag_name).order_by(Tag.tag_id).all():
 #     global classification
@@ -38,7 +38,7 @@ tags为字典，{post_id : tag_id}
 def index():
     # 声明全局变量
     global  index_add_counter
-    global classification
+    global series
     index_add_counter = 0
     posts = []
     tags = {}
@@ -57,7 +57,7 @@ def index():
             index_add_counter += 1
             return render_template('index.html',
                                    title = 'Home',
-                                   classification = classification,
+                                   series = series,
                                    user = user,
                                    posts = posts,
                                    tags = tags)
@@ -65,7 +65,7 @@ def index():
     index_add_counter += 1
     return render_template('index.html',
                            title = 'Home',
-                           classification = classification,
+                           series = series,
                            user = user,
                            posts = posts,
                            tags = tags) #对给定模板传递参数，并翻译模板
@@ -119,7 +119,7 @@ def post(post_id):
                 tags.append(tag)
     return render_template('post.html',
                            title = Post.title,
-                           classification = classification,
+                           series = series,
                            post = post,
                            tags = tags)
 
@@ -131,7 +131,7 @@ def archives():
     posts = db.session.query(Post).order_by(db.desc(Post.id)).all()
     return render_template('archives.html',
                            title = 'Archives',
-                           classification = classification,
+                           series = series,
                            posts = posts)
 
 @app.route('/archives/<tag>')

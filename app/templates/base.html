@@ -44,18 +44,20 @@
     </div>
     <div>
         <ul class="nav navbar-nav">
-            <!-- 下拉菜单，通过类别查看文章 -->
-            <!--<li class="dropdown-toggle" data-toggle="dropdown"><a href="{{url_for('archives')}}">Archives<b class="caret"></b> </a>-->
-                <!--<ul class="dropdown-menu">-->
-                    <!--{% for class in classification %}-->
-                    <!--<li><a href="{{url_for('archives',class = class)}}">{{class[0]}}</a></li>-->
-                    <!--{% endfor %}-->
-                    <!--<li class="divider"></li>-->
-                    <!--<li><a href="#">分离的链接</a></li>-->
-                <!--</ul>-->
+
             <!-- archives 不使用下拉菜单-->
             <li class="dropdown-toggle" data-toggle="dropdown"><a href="{{url_for('archives')}}">Archives</a>
             </li>
+            <!-- 系列-->
+             <!--下拉菜单，通过系列查看文章 -->
+            <li class="dropdown-toggle" data-toggle="dropdown"><a href="{{url_for('archives')}}">Series<b class="caret"></b> </a>
+                <ul class="dropdown-menu">
+                    {% for ser in series %}
+                    <li><a href="{{url_for('archives',class = class)}}">{{ser[0]}}</a></li>
+                    {% endfor %}
+                    <li class="divider"></li>
+                    <li><a href="#">分离的链接</a></li>
+                </ul>
             <!-- 相册 -->
             <li><a href="#">Illustrations</a> </li>
             <li><a href="#">About</a> </li>

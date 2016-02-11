@@ -157,8 +157,15 @@ body{
     display: block;
     padding-left: 5px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     min-height: 30px;
+}
+.post-series{
+    padding-left: 5px;
+    padding-bottom: 10px;
+    font-size: medium;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #b2b5ba;
 }
 .post-timestamp:before{
     font-family: FontAwesome;
@@ -174,6 +181,12 @@ body{
 .post-lan:before{
     font-family: FontAwesome;
     content: "\f121";
+    font-size: small;
+    padding-right: 5px;
+}
+.post-series:before{
+    font-family: FontAwesome;
+    content: "\f278";
     font-size: small;
     padding-right: 5px;
 }
