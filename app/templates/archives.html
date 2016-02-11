@@ -2,5 +2,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-archive
+<div class="archives">
+    {% for post in posts %}
+    <section class="archives-row">
+            <div class="archives-title">{{post.title}}</div>
+            <div class="archives-timestamp">{{post.timestamp}}</div>
+    </section>
+    {% endfor %}
+</div>
+
+
 {% endblock %}

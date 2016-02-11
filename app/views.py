@@ -6,6 +6,7 @@ from app import app, db, lm
 from .models import User, Post, Tag, PostTagRel
 from datetime import datetime
 import markdown
+import markdown2
 
 # 初始化首页加载次数
 index_add_counter = 0
@@ -107,7 +108,7 @@ def index_addition():
 @app.route('/post/<post_id>')
 def post(post_id):
     post = db.session.query(Post).filter(Post.id == post_id).first()
-    html_txt = markdown.markdown(post.body_markdown)
+    html_txt = markdown.markdown(post.body_markdown, extensions=['fenced_code'])
     post.body = html_txt
     db.session.add(post)
     db.session.commit()
@@ -124,12 +125,20 @@ def post(post_id):
 
 # 归档页面
 # 用js实现不加载按时间排序或按类别排序
+# archives页面根据post_id倒序排列，默认以时间为序
 @app.route('/archives')
 def archives():
+    posts = db.session.query(Post).order_by(db.desc(Post.id)).all()
     return render_template('archives.html',
                            title = 'Archives',
-                           post = post)
+                           classification = classification,
+                           posts = posts)
 
+@app.route('/archives/<tag>')
+def archives_tag(tag):
+    return render_template('archives.html',
+                           title = str(tag),
+                           post = post)
 
 @app.route('/register',methods= ['GET','POST'])
 def register():
