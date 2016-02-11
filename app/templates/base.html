@@ -12,19 +12,20 @@
     <link rel="stylesheet" href="{{url_for('static', filename ='bootstrap/css/bootstrap.min.css')}}" type="text/css">
 
     <link rel="stylesheet" href="{{url_for('static', filename ='font-awesome/css/font-awesome.min.css')}}" type="text/css">
-    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/obsidian.min.css">-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/obsidian.min.css">
 
     <!--<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
     <script type=text/javascript src="{{url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
 
     <!-- highlight.js-->
-    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>-->
-    <!--<script>hljs.initHighlightingOnLoad();</script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <!-- jQuery-->
     <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
 
     <!-- 让markdown支持latex数学公式 -->
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
     <link rel="stylesheet" href="{{url_for('static', filename='custom.css')}}" type="text/css"/>
     <!-- 测试js-->
     <script type="text/javascript" src="{{url_for('static', filename ='test.js') }}"></script>
@@ -39,15 +40,15 @@
 <!-- 导航栏 -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="/index">Penguin's blog</a>
+        <a class="navbar-brand" href="{{url_for('index')}}">Penguin's blog</a>
     </div>
     <div>
         <ul class="nav navbar-nav">
             <!-- 下拉菜单，通过类别查看文章 -->
-            <li><a href="/post" class="dropdown-toggle" data-toggle="dropdown">Archives<b class="caret"></b> </a>
+            <li class="dropdown-toggle" data-toggle="dropdown"><a href="{{url_for('archives')}}">Archives<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
                     {% for class in classification %}
-                    <li><a href="url_for('archives/classification',class = class)">{{class[0]}}</a></li>
+                    <li><a href="{{url_for('archives',class = class)}}">{{class[0]}}</a></li>
                     {% endfor %}
 
                     <li class="divider"></li>
