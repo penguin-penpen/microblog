@@ -2,13 +2,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="archives">
-    {% for post in posts %}
+    <div class="archives-header">
+        <h1>Archives</h1>
+        <div class="archives-order-by">
+            <button class="btn archives-order-time">按时间</button>
+            <div class="post-header-buttom-divider">|</div>
+            <button class="btn archives-order-tag">按类别</button>
+        </div>
+    </div>
+    <div class="archives-content">
+        {% for post in posts %}
     <section class="archives-row">
-            <div class="archives-title">{{post.title}}</div>
-            <div class="archives-timestamp">{{post.timestamp}}</div>
+        <div class="archives-title"><a href="#">{{post.title}}</a> </div>
+        <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
     </section>
     {% endfor %}
+    </div>
+
 </div>
 
 

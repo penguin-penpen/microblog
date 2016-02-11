@@ -71,7 +71,7 @@ body{
     width: 300px;
     height: 100%;
     background-attachment: fixed;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.7);
     z-index: 1;
 }
 .sidebar-row{
@@ -115,7 +115,7 @@ body{
     margin-top: 0px;
     padding: 15px;
     padding-bottom: 50px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.7);
     /*z-index: 1;*/
 }
 .post{
@@ -283,7 +283,7 @@ body{
     border: 1px solid #111;
     padding: 0.8em 1em;
     font: 14px/22px Consolas, Monaco, 'Andale Mono', monospace;
-    border-radius: 3px;
+    border-radius: 1px;
     background-color: #21221d;
     background-image: -webkit-linear-gradient(#21221d 50%, #272822 50%);
     background-image: -moz-linear-gradient(#21221d 50%, #272822 50%);
@@ -297,6 +297,7 @@ body{
 }
 pre{
     padding: 0px;
+    border-radius: 1px;
 }
 /*返回顶端按钮*/
 #back-to-top{
@@ -312,30 +313,93 @@ pre{
     color: #acafb4;
     z-index: 5;
 }
+/*归档页面*/
 .archives{
-    padding-top: 50px;
+    padding-top: 30px;
     padding-left: 50px;
+    padding-right: 50px;
 }
-.archives-row{
-    display: block;
-    height: 50px;
+.archives-header{
+    padding: 10px;
+    color: #333;
+    font-family: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';;
+}
+.archives-order-by{
+    position: absolute;
+    right: 90px;
+    font-size: 15px;
+    color: #52a8bc;
+}
+.archives-order-time, .archives-order-tag {
+    display: inline-block;
+    height: 25px;
+    width: 50px;
+    padding: 0px;
+    text-align: center;
+    border-radius: 2px;
+    background: rgb(197, 220, 224);
+}
+.archives-order-time:hover, .archives-order-tag:hover{
+    color: #fb6857;
+}
+.archives-order-time:visited, .archives-order-tag:visited{
+    color: #52a8bc;
+}
+.archives-order-time:focus, .archives-order-tag:focus{
+    color: #fb6857;
+    outline: none;
+}
+.archives-content{
+    padding-top: 20px;
+}
+section.archives-row{
+    height: 40px;
+    background: rgba(255,255,255,0.7);
+    margin-bottom: 0.2em;
+    border-left: 0.3em solid #ccc;
+    padding-right: 30px;
+}
+section.archives-row:hover{
+    border-left: 0.3em solid #fb6857;
+}
+.archives-title >a{
+    /*display: block;*/
     width: 100%;
-    font-size: medium;
-    background: lightblue;
-    border-left: 0.5em solid #ccc;
-    -webkit-transition: border-left 0.45s;
-    -moz-transition: border-left 0.45s;
-    -o-transition: border-left 0.45s;
-    -ms-transition: border-left 0.45s;
-    transition: border-left 1s;
+    height: 100%;
+    text-decoration: none;
+    color: #52a8bc;
+    /*font-size: larger;*/
 }
-section.archives-row :hover{
-    border-left: 0.5em solid #fb6857;
+.archives-title >a:hover{
+    color: #fb6857;
+    text-decoration: none;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
 }
 .archives-timestamp, .archives-title{
     display: inline-block;
+    padding: 10px;
+    color: #52a8bc;
+}
+.archives-title{
+    padding-left: 30px;
+    color: #52a8bc;
+    font-size: 20px;
+    /*font-weight: 500;*/
 }
 .archives-timestamp{
-    right: 30px;
+    position: absolute;
+    right: 80px;
+    font-size: medium;
+    color: #b2b5ba;
+
+}
+.archives-timestamp:before{
+    font-family: FontAwesome;
+    content: "\f073";
+    font-size: medium;
+    padding: 10px;
 }
 
