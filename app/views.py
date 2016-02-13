@@ -130,7 +130,7 @@ def post(post_id):
 def archives():
     posts = db.session.query(Post).order_by(db.desc(Post.id)).all()
     return render_template('archives.html',
-                           title = 'Archives',
+                           title = 'archives.html',
                            series = series,
                            posts = posts)
 
