@@ -15,7 +15,7 @@
     <div class="archives-content">
         {% for post in posts %}
     <section class="archives-row">
-        <div class="archives-title"><a href="#">{{post.title}}</a> </div>
+        <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
         <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
     </section>
     {% endfor %}
