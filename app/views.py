@@ -53,6 +53,7 @@ def index():
 
         #处理info，去除html标签
         post.info = BeautifulSoup(post.body[0:500]).get_text()
+        # post.info = post.body[0:100]
         db.session.add(post)
         db.session.commit()
 
