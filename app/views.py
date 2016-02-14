@@ -6,6 +6,7 @@ from .forms import LoginForm, EditForm, RegisterForm
 from app import app, db, lm
 from .models import User, Post, Tag, PostTagRel, Series
 from datetime import datetime
+from bs4 import BeautifulSoup
 import markdown
 import markdown2
 
@@ -49,18 +50,23 @@ def index():
         post_id = num - i
         tags.setdefault(post_id, [])
         post = db.session.query(Post).filter(Post.id == post_id).first()
-        post.info = post.body[0:100]
+
+        #处理info，去除html标签
+        post.info = BeautifulSoup(post.body[0:500]).get_text()
+        db.session.add(post)
+        db.session.commit()
+
         posts.append(post)
         for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
-                tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
-                tags[post_id].append(tag)
+            tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
+            tags[post_id].append(tag)
     index_add_counter = 1
     return render_template('index.html',
-                                   title = 'Home',
-                                   series = series,
-                                   user = user,
-                                   posts = posts,
-                                   tags = tags)
+                           title = 'Home',
+                           series = series,
+                           user = user,
+                           posts = posts,
+                           tags = tags)
 """
     for post_id in range(10 * index_add_counter + 1, 10 * index_add_counter + 11):
         tags.setdefault(post_id, [])
@@ -135,8 +141,8 @@ def post(post_id):
     tags = []
     # tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == post_id).first().tag_name
     for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
-                tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
-                tags.append(tag)
+        tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
+        tags.append(tag)
     return render_template('post.html',
                            title = Post.title,
                            series = series,

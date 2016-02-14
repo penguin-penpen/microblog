@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa835fb-f77f-4c43-867a-957d632ead69" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/archives.html" afterPath="$PROJECT_DIR$/app/templates/archives.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/custom.css" afterPath="$PROJECT_DIR$/app/static/custom.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views.py" afterPath="$PROJECT_DIR$/app/views.py" />
     </list>
     <ignored path="microblog.iws" />
@@ -21,7 +19,7 @@
     <SUITE FILE_PATH="coverage/microblog$db_migrate.coverage" NAME="db_migrate Coverage Results" MODIFIED="1455196238518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/microblog$test.coverage" NAME="test Coverage Results" MODIFIED="1454672828888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/microblog$create_db.coverage" NAME="create_db Coverage Results" MODIFIED="1452859493520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
-    <SUITE FILE_PATH="coverage/microblog$Run.coverage" NAME="Run Coverage Results" MODIFIED="1455456569025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/microblog$Run.coverage" NAME="Run Coverage Results" MODIFIED="1455457099590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/microblog$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1452857521318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/microblog$db_create.coverage" NAME="db_create Coverage Results" MODIFIED="1454781812030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -34,14 +32,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.30451128">
+              <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
               <folding>
                 <element signature="e#24#59#0" expanded="true" />
-                <element signature="e#2154#3363#1" expanded="false" />
+                <element signature="e#2246#3455#1" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -120,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/static/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32330826">
-              <caret line="412" column="25" selection-start-line="412" selection-start-column="25" selection-end-line="412" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="415" column="23" selection-start-line="415" selection-start-column="23" selection-end-line="415" selection-end-column="23" />
               <folding>
                 <element signature="e#1840#1906#0" expanded="false" />
                 <element signature="e#4838#4911#0" expanded="false" />
@@ -184,9 +182,9 @@
         <option value="$PROJECT_DIR$/app/templates/post.html" />
         <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/templates/base.html" />
-        <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/app/templates/archives.html" />
         <option value="$PROJECT_DIR$/app/static/custom.css" />
+        <option value="$PROJECT_DIR$/app/views.py" />
       </list>
     </option>
   </component>
@@ -633,7 +631,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="146" />
+      <option name="time" value="149" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -669,7 +667,7 @@
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
           <folding>
             <element signature="e#24#59#0" expanded="true" />
-            <element signature="e#2154#3363#1" expanded="false" />
+            <element signature="e#2246#3455#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1001,17 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-          <folding>
-            <element signature="e#24#59#0" expanded="true" />
-            <element signature="e#2154#3363#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1030,13 +1017,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/static/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32330826">
-          <caret line="412" column="25" selection-start-line="412" selection-start-column="25" selection-end-line="412" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="415" column="23" selection-start-line="415" selection-start-column="23" selection-end-line="415" selection-end-column="23" />
           <folding>
             <element signature="e#1840#1906#0" expanded="false" />
             <element signature="e#4838#4911#0" expanded="false" />
             <element signature="e#5790#5817#0" expanded="false" />
             <element signature="e#6525#7198#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30451128">
+          <caret line="54" column="49" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
+          <folding>
+            <element signature="e#24#59#0" expanded="true" />
+            <element signature="e#2246#3455#1" expanded="false" />
           </folding>
         </state>
       </provider>
