@@ -14,11 +14,18 @@
     </div>
     <div class="archives-content">
         {% for post in posts %}
-    <section class="archives-row">
-        <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
-        <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
-    </section>
-    {% endfor %}
+        {% if(post.id%2 == 1) %}
+        <section class="archives-row-odd">
+            <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
+            <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
+        </section>
+        {% else %}
+        <section class="archives-row-even">
+            <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
+            <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
+        </section>
+        {% endif %}
+        {% endfor %}
     </div>
 
 </div>

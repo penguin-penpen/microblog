@@ -365,14 +365,24 @@ pre{
 .archives-content{
     padding-top: 20px;
 }
-section.archives-row{
+section.archives-row-odd{
     height: 40px;
     background: rgba(255,255,255,0.7);
     margin-bottom: 0.2em;
     border-left: 0.3em solid #ccc;
     padding-right: 30px;
 }
-section.archives-row:hover{
+section.archives-row-even{
+    height: 40px;
+    background: rgba(234, 240, 243, 0.7);
+    margin-bottom: 0.2em;
+    border-left: 0.3em solid #ccc;
+    padding-right: 30px;
+}
+section.archives-row-odd:hover{
+    border-left: 0.3em solid #fb6857;
+}
+section.archives-row-even:hover{
     border-left: 0.3em solid #fb6857;
 }
 .archives-title >a{

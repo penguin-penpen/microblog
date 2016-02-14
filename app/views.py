@@ -49,7 +49,7 @@ def index():
         post_id = num - i
         tags.setdefault(post_id, [])
         post = db.session.query(Post).filter(Post.id == post_id).first()
-        post.info = post.body(0)[0:100]
+        post.info = post.body[0:100]
         posts.append(post)
         for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
                 tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
