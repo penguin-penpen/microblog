@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collections import defaultdict
 from flask import flash, render_template, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
 from .forms import LoginForm, EditForm, RegisterForm
@@ -9,7 +10,7 @@ import markdown
 import markdown2
 
 # 初始化首页加载次数
-index_add_counter = 0
+index_add_counter = 1
 # 获取文章分类
 series = db.session.query(Series.series_name).order_by(Series.series_id).all()
 # classification = [r(0).encode('utf8') for r in classification]
@@ -39,10 +40,28 @@ def index():
     # 声明全局变量
     global  index_add_counter
     global series
-    index_add_counter = 0
     posts = []
     tags = {}
+    # 计算post总数
+    num = db.session.query(Post.id).count()
     # 根据加载次数计算相对post_id，一次加载10篇
+    for i in range(0,10):
+        post_id = num - i
+        tags.setdefault(post_id, [])
+        post = db.session.query(Post).filter(Post.id == post_id).first()
+        post.info = post.body(0)[0:100]
+        posts.append(post)
+        for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
+                tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
+                tags[post_id].append(tag)
+    index_add_counter = 1
+    return render_template('index.html',
+                                   title = 'Home',
+                                   series = series,
+                                   user = user,
+                                   posts = posts,
+                                   tags = tags)
+"""
     for post_id in range(10 * index_add_counter + 1, 10 * index_add_counter + 11):
         tags.setdefault(post_id, [])
         try:
@@ -69,23 +88,24 @@ def index():
                            user = user,
                            posts = posts,
                            tags = tags) #对给定模板传递参数，并翻译模板
+"""
 
 @app.route('/index-addition')
 def index_addition():
     # 声明全局变量
     global index_add_counter
     posts = []
-    tags = {}
+    tags = defaultdict(list)
     # 根据加载次数计算相对post_id
     for post_id in range(10 * index_add_counter + 1, 10 * index_add_counter + 11):
-        tags.setdefault(post_id, [])
+        # tags.setdefault(int, [])
         try:
             post = db.session.query(Post).order_by(db.desc(Post.id))[post_id - 1]
             posts.append(post)
 
-            for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
+            for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post.id).first().tag_id.split(',')):
                 tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
-                tags[post_id].append(tag)
+                tags[post.id].append(tag)
         except IndexError:
             # posts.reverse()
             index_add_counter += 1
