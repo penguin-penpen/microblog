@@ -49,7 +49,7 @@
             <li><a href="{{url_for('archives')}}">Archives</a>
             </li>
             <!-- 系列-->
-             <!--下拉菜单，通过系列查看文章 -->
+            <!--下拉菜单，通过系列查看文章 -->
             <li class="dropdown-toggle" data-toggle="dropdown"><a href="{{url_for('archives')}}">Series<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
                     {% for ser in series %}
@@ -58,7 +58,7 @@
                     <li class="divider"></li>
                     <li><a href="#">分离的链接</a></li>
                 </ul>
-            <!-- 相册 -->
+                <!-- 相册 -->
             <li><a href="#">Illustrations</a> </li>
             <li><a href="#">About</a> </li>
         </ul>
@@ -72,13 +72,36 @@
     </div>
 </nav>
 <!-- 侧边栏 -->
+<!--侧边栏有tag显示块、留言板、搜索-->
 <div class="sidebar">
     <div class="container">
-        <ul class="nav">
-            <li class="sidebar-row"><a href="#">item</a> </li>
-            <li class="sidebar-row"><a href="#">item</a> </li>
-        </ul>
-        <div class="comment-box">comment</div>
+        <!--<ul class="nav">-->
+        <!--<li class="sidebar-row"><a href="#">item</a> </li>-->
+        <!--<li class="sidebar-row"><a href="#">item</a> </li>-->
+        <!--</ul>-->
+        <div class="sidebar-box">
+                <form action="url_for('search')" method="get" accept-charset="UTF-8" class="search-form">
+                    <input type="search" class="search-form-input" placeholder="Search">
+                </form>
+        </div>
+        <!-- tags-->
+        <div class="sidebar-box">
+            <div class="sidebar-tag-box">
+                <div class="sidebar-header">Tags</div>
+                <div class="sidebar-content">
+                    {% for tag in all_tags %}
+                <div class="sidebar-tag">
+                    <a class="sidebar-tag-link" href="#">{{tag[0]}}</a>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-box">
+            <div class="sidebar-comment-box">
+                <div class="sidebar-header">Comments</div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- 内容 -->

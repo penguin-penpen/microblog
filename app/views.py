@@ -12,12 +12,10 @@ import markdown2
 
 # 初始化首页加载次数
 index_add_counter = 1
-# 获取文章分类
+# 获取文章系列
 series = db.session.query(Series.series_name).order_by(Series.series_id).all()
-# classification = [r(0).encode('utf8') for r in classification]
-# for tag in db.session.query(Tag.tag_name).order_by(Tag.tag_id).all():
-#     global classification
-#     classification.append(str(tag))
+# 获取所有标签
+all_tags = db.session.query(Tag.tag_name).order_by(Tag.tag_id).all()
 
 @lm.user_loader
 def load_user(id):
@@ -65,6 +63,7 @@ def index():
     return render_template('index.html',
                            title = 'Home',
                            series = series,
+                           all_tags = all_tags,
                            user = user,
                            posts = posts,
                            tags = tags)

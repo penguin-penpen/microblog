@@ -78,6 +78,54 @@ body{
     border-bottom: 1px solid lightgray;
     line-height: 30px;
 }
+.sidebar-box{
+    padding: 10px;
+}
+.sidebar-header{
+    font-size: large;
+    border-bottom: solid 1px #cfd2d8;
+    color: #52a8bc;
+}
+.sidebar-header:after{
+
+}
+.sidebar-content{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.sidear-tag-box{
+}
+.sidebar-tag{
+    display: inline-block;
+    /*height: 25px;*/
+    /*width: 50px;*/
+    padding: 3px;
+    margin: 3px;
+    text-align: center;
+    border-radius: 4px;
+    /*color: #fb6857;;*/
+    background: rgb(255, 255, 255);
+}
+.sidebar-tag-link{
+    color: #fb6857;
+    font-size: small;
+}
+.search-form{
+
+}
+.search-form-input{
+    /*background-color: transparent;*/
+    border: medium none;
+    border-radius: 3px;
+    color: #666;
+    width: 100%;
+    padding: 3px;
+    height: 30px;
+    line-height: 22px;
+    vertical-align: middle;
+    /* 下面代码解决了问题 */
+    -webkit-appearance:none;
+}
 .container-back{
     position: relative;
     margin-top: 52px;
