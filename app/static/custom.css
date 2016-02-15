@@ -257,13 +257,14 @@ body{
 
 }
 .post-info{
-    padding-top: 10px;
+    padding-top: 20px;
     padding-left: 2em;
-    color: #7a7a7a;
+    color: #848484;
     font-size: medium;
     font-weight: 500;
-    letter-spacing: 1px;
+    /*letter-spacing: 1px;*/
     line-height: 30px;
+    font-family: "courier new", monospace;
 }
 .info-back{
     background: rgba(226, 232, 239, 0.3);
