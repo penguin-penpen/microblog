@@ -65,3 +65,9 @@ class PostTagRel(db.Model):
 class Series(db.Model):
     series_id = db.Column(db.Integer, primary_key=True)
     series_name = db.Column(db.String)
+
+class Comments(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String)
+    user_id = db.Column(db.Integer, db.ForeignKey(User.id))
+    timestamp = db.Column(db.String)
