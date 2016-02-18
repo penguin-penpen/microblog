@@ -147,7 +147,7 @@ def post(post_id):
         tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
         tags.append(tag)
     return render_template('post.html',
-                           title = Post.title,
+                           title = post.title,
                            post = post,
                            tags = tags)
 
