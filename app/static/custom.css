@@ -475,4 +475,29 @@ section.archives-row-even:hover{
     font-size: medium;
     padding: 10px;
 }
+.post-comment{
+    margin: 20px;
+    padding: 2em;
+}
+.comment{
 
+}
+.comment-nickname, .comment-email{
+    display: inline-block;
+    padding-bottom: 20px;
+    padding-right: 2em;
+}
+#comment-nickname{
+    color: #b2b5ba;
+}
+#comment-email{
+    color: #b2b5ba;
+}
+#submit-comment{
+    width: 100%;
+}
+.form-control{
+    border-radius: 1px;
+    border: solid 1px #d9d9d9;
+    resize: none;
+}

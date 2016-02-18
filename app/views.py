@@ -67,8 +67,6 @@ def index():
     index_add_counter = 1
     return render_template('index.html',
                            title = 'Home',
-                           series = g.series,
-                           all_tags = g.all_tags,
                            user = user,
                            posts = posts,
                            tags = tags)
@@ -150,7 +148,6 @@ def post(post_id):
         tags.append(tag)
     return render_template('post.html',
                            title = Post.title,
-                           series = g.series,
                            post = post,
                            tags = tags)
 

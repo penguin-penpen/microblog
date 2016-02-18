@@ -22,6 +22,18 @@
             {{post.body | safe}}
         </div>
     </div>
+<div class="post-comment">
+    <form class="comment" role="form">
+        <div class="comment-nickname">
+            <input type="text" class="form-control" id="comment-nickname" placeholder="昵称*">
+        </div>
+        <div class="comment-email">
+            <input type="email" class="form-control" id="comment-email" placeholder="邮箱*">
+        </div>
+        <textarea class="form-control" rows="5" placeholder="写评论..."></textarea>
+        <button class="btn" id="submit-comment">发表评论</button>
+    </form>
+</div>
 
 </div>
 {% endblock %}
