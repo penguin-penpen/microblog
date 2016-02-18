@@ -13,9 +13,8 @@ import markdown2
 # 初始化首页加载次数
 index_add_counter = 1
 # 获取文章系列
-series = db.session.query(Series.series_name).order_by(Series.series_id).all()
-# 获取所有标签
-all_tags = db.session.query(Tag.tag_name).order_by(Tag.tag_id).all()
+# series = db.session.query(Series.series_name).order_by(Series.series_id).all()
+
 
 @lm.user_loader
 def load_user(id):
@@ -29,6 +28,12 @@ def before_request():
         db.session.add(g.user)
         db.session.commit()
 
+    # 将所有模板都需要的参数存入g对象
+    # 获取全部系列
+    g.series = db.session.query(Series.series_name).order_by(Series.series_id).all()
+    # 获取所有标签
+    g.all_tags = db.session.query(Tag.tag_name).order_by(Tag.tag_id).all()
+
 """
 tags为字典，{post_id : tag_id}
 倒序输出post
@@ -38,7 +43,7 @@ tags为字典，{post_id : tag_id}
 def index():
     # 声明全局变量
     global  index_add_counter
-    global series
+    # global series
     posts = []
     tags = {}
     # 计算post总数
@@ -62,8 +67,8 @@ def index():
     index_add_counter = 1
     return render_template('index.html',
                            title = 'Home',
-                           series = series,
-                           all_tags = all_tags,
+                           series = g.series,
+                           all_tags = g.all_tags,
                            user = user,
                            posts = posts,
                            tags = tags)
@@ -145,7 +150,7 @@ def post(post_id):
         tags.append(tag)
     return render_template('post.html',
                            title = Post.title,
-                           series = series,
+                           series = g.series,
                            post = post,
                            tags = tags)
 
