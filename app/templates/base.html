@@ -100,6 +100,9 @@
         <div class="sidebar-box">
             <div class="sidebar-comment-box">
                 <div class="sidebar-header">Comments</div>
+                {% for com in g.comments %}
+                {{com[0]}}
+                {% endfor %}
             </div>
         </div>
     </div>

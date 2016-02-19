@@ -34,6 +34,13 @@ def before_request():
     g.series = db.session.query(Series.series_name).order_by(Series.series_id).all()
     # 获取所有标签
     g.all_tags = db.session.query(Tag.tag_name).order_by(Tag.tag_id).all()
+    # 获取前5条评论
+    g.comments = []
+    for i in range(0,4):
+        try:
+            g.comments.append(db.session.query(Comments.content).order_by(Comments.timestamp).all()[i][:20])
+        except IndexError:
+            break
 
 """
 tags为字典，{post_id : tag_id}
