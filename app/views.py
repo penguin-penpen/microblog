@@ -143,6 +143,7 @@ def post(post_id):
     db.session.add(post)
     db.session.commit()
     tags = []
+    comments = []
     # comment form
     form = CommentForm()
     # tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == post_id).first().tag_name
@@ -150,20 +151,26 @@ def post(post_id):
         tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
         tags.append(tag)
 
+    for com in (db.session.query(Comments).filter(Comments.post_id == post_id).order_by(db.desc(Comments.timestamp)).all()):
+        comments.append(com)
     # form submit
     if form.validate_on_submit():
-        comment = Comments(content = form.comment.data, nickname = form.nickname.data, email = form.email.data,
-                           timestamp = time.strftime('Y%-M%-D% H%:M%', time.localtime(time.time())))
+        comment = Comments(content = form.comment.data,
+                           nickname = form.nickname.data,
+                           email = form.email.data,
+                           timestamp = time.strftime('Y%-M%-D% H%:M%', time.localtime(time.time())),
+                           post_id = post.id)
         db.session.add(comment)
         db.session.commit()
         flash('评论已发表')
         return redirect(url_for('post',post_id=post.id))
-
+    print form.errors
     return render_template('post.html',
                            title = post.title,
                            post = post,
                            tags = tags,
-                           form = form)
+                           form = form,
+                           comments = comments)
 
 # 归档页面
 # 用js实现不加载按时间排序或按类别排序

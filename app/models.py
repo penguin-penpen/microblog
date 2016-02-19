@@ -71,3 +71,4 @@ class Comments(db.Model):
     timestamp = db.Column(db.String, primary_key=True)
     nickname = db.Column(db.String, nullable=False)
     email = db.Column(db.String)
+    post_id = db.Column(db.String, db.ForeignKey(Post.id))

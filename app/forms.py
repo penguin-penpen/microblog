@@ -25,5 +25,5 @@ class EditForm(Form):
 
 class CommentForm(Form):
     nickname = StringField('nickname', validators=[DataRequired()])
-    email = StringField('email', validators=[Email()])
+    email = StringField('email', validators=[DataRequired(), Email()])
     comment = TextAreaField('comment', validators=[DataRequired()])
