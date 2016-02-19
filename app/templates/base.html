@@ -120,16 +120,7 @@
 <button class="btn" id="back-to-top">
     <i class="fa fa-arrow-up"></i>
 </button>
-<!-- 显示错误信息 -->
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul>
-    {% for message in messages %}
-    <li>{{message}}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
+
 <footer class="panel-footer">Copyright © 2016 Penguin's Blog · Powered by Bootstrap</footer>
 </body>
 </html>

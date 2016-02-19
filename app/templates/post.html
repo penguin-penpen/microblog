@@ -23,18 +23,11 @@
         </div>
     </div>
     <div class="comment-display">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }} </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+
     </div>
     <div class="post-comment">
         <form class="comment" role="form" action="" method="post">
+            {{form.hidden_tag()}}
             <div class="comment-nickname">
                 <!--<input type="text" class="form-control" id="comment-nickname" placeholder="昵称*">-->
                 {{form.nickname(class='form-control', id = 'comment-nickname', placeholder = '昵称*')}}
