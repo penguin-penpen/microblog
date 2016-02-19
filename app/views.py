@@ -2,11 +2,12 @@
 from collections import defaultdict
 from flask import flash, render_template, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user, current_user, login_required
-from .forms import LoginForm, EditForm, RegisterForm
+from .forms import LoginForm, EditForm, RegisterForm, CommentForm
 from app import app, db, lm
-from .models import User, Post, Tag, PostTagRel, Series
+from .models import User, Post, Tag, PostTagRel, Series, Comments
 from datetime import datetime
 from bs4 import BeautifulSoup
+import time
 import markdown
 import markdown2
 
@@ -134,7 +135,7 @@ def index_addition():
 """
 用文章id从数据库查询相应内容并显示
 """
-@app.route('/post/<post_id>')
+@app.route('/post/<post_id>', methods=['GET','POST'])
 def post(post_id):
     post = db.session.query(Post).filter(Post.id == post_id).first()
     html_txt = markdown.markdown(post.body_markdown, extensions=['fenced_code'])
@@ -142,14 +143,27 @@ def post(post_id):
     db.session.add(post)
     db.session.commit()
     tags = []
+    # comment form
+    form = CommentForm()
     # tag = db.session.query(Tag).join(PostTagRel).filter(PostTagRel.id == post_id).first().tag_name
     for tag_id in (db.session.query(PostTagRel).filter(PostTagRel.id == post_id).first().tag_id.split(',')):
         tag = db.session.query(Tag).filter(Tag.tag_id == tag_id).first().tag_name
         tags.append(tag)
+
+    # form submit
+    if form.validate_on_submit():
+        comment = Comments(content = form.comment.data, nickname = form.nickname.data, email = form.email.data,
+                           timestamp = time.strftime('Y%-M%-D% H%:M%', time.localtime(time.time())))
+        db.session.add(comment)
+        db.session.commit()
+        flash('评论已发表')
+        return redirect(url_for('post',post_id=post.id))
+
     return render_template('post.html',
                            title = post.title,
                            post = post,
-                           tags = tags)
+                           tags = tags,
+                           form = form)
 
 # 归档页面
 # 用js实现不加载按时间排序或按类别排序

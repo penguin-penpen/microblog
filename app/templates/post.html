@@ -22,18 +22,32 @@
             {{post.body | safe}}
         </div>
     </div>
-<div class="post-comment">
-    <form class="comment" role="form">
-        <div class="comment-nickname">
-            <input type="text" class="form-control" id="comment-nickname" placeholder="昵称*">
-        </div>
-        <div class="comment-email">
-            <input type="email" class="form-control" id="comment-email" placeholder="邮箱*">
-        </div>
-        <textarea class="form-control" rows="5" placeholder="写评论..."></textarea>
-        <button class="btn" id="submit-comment">发表评论</button>
-    </form>
-</div>
+    <div class="comment-display">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="post-comment">
+        <form class="comment" role="form" action="" method="post">
+            <div class="comment-nickname">
+                <!--<input type="text" class="form-control" id="comment-nickname" placeholder="昵称*">-->
+                {{form.nickname(class='form-control', id = 'comment-nickname', placeholder = '昵称*')}}
+            </div>
+            <div class="comment-email">
+                <!--<input type="text" class="form-control" id="comment-email" placeholder="邮箱（仅博主可见）">-->
+                {{form.email(class = 'form-control', id = 'comment-email', placeholder = '邮箱（仅博主可见）')}}
+            </div>
+            <!--<textarea class="form-control" rows="5" placeholder="写评论..."></textarea>-->
+            {{form.comment(class = 'form-control', placeholder = '写评论...', rows = 5)}}
+            <input type="submit" class="btn" id="submit-comment" value="提交评论"></input>
+        </form>
+    </div>
 
 </div>
 {% endblock %}

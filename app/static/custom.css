@@ -475,7 +475,13 @@ section.archives-row-even:hover{
     font-size: medium;
     padding: 10px;
 }
+.comment-display{
+    border-top: solid 1px lightgray;
+    margin: 20px;
+    padding: 2em;
+}
 .post-comment{
+    border-top: solid 1px lightgray;
     margin: 20px;
     padding: 2em;
 }
@@ -495,6 +501,8 @@ section.archives-row-even:hover{
 }
 #submit-comment{
     width: 100%;
+    color: #333;
+    font-weight: bold;
 }
 .form-control{
     border-radius: 1px;
