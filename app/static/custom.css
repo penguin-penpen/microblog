@@ -492,12 +492,15 @@ section.archives-row-even:hover{
     display: inline-block;
     padding-bottom: 20px;
     padding-right: 2em;
+    width: 30%;
 }
 #comment-nickname{
     color: #b2b5ba;
+    width: 100%;
 }
 #comment-email{
     color: #b2b5ba;
+    width: 100%;
 }
 #submit-comment{
     width: 100%;
@@ -511,5 +514,5 @@ section.archives-row-even:hover{
 }
 #email-error{
     display: inline-block;
-    color: red;
+    /*color: red;*/
 }

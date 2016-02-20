@@ -35,6 +35,7 @@
             }else{
                 element.addEventListener("input",checkEmail,false);
             }
+//            邮箱动态检查
             function checkEmail() {
                 var email = document.getElementById("comment-email").value;
                 if (email != "") {
@@ -43,17 +44,36 @@
                     if (!isok) {
 //                        alert("邮箱格式不正确，请重新输入！");
 //                        document.getElementById("comment-email").focus();
+                        document.getElementById('email-error').style.color = 'red';
                         document.getElementById('email-error').innerHTML= '格式不正确';
                         return false;
                     }else{
-                        document.getElementById('email-error').innerHTML= '';
+                        document.getElementById('email-error').style.color = '#24C920';
+                        document.getElementById('email-error').innerHTML= '仅博主可见，您可在邮件中查看回复';
+                        return true;
                     }
+                }else{
+                        document.getElementById('email-error').style.color = '#24C920';
+                        document.getElementById('email-error').innerHTML= '仅博主可见，您可在邮件中查看回复';
+                    return false
+                    }
+            }
+//            提交检查
+            function checkSubmit(event){
+                var nickname = document.getElementById('comment-nickname').value;
+                var email = document.getElementById('comment-email').value;
+                var content = document.getElementById('comment-content').value;
+                if((nickname == '')||(content == '')||(!checkEmail())){
+                    alert('请根据提示正确填写信息！');
+//                    event.preventDefault();
+                    return false
+                }else{
+                    return true
                 }
-
             }
 
         </script>
-        <form class="comment" role="form" action="" method="post">
+        <form class="comment" role="form" action="" method="post" onsubmit="return checkSubmit()">
             {{form.hidden_tag()}}
             <div class="comment-nickname">
                 <!--<input type="text" class="form-control" id="comment-nickname" placeholder="昵称*">-->
@@ -61,12 +81,12 @@
             </div>
             <div class="comment-email">
                 <!--<input type="text" class="form-control" id="comment-email" placeholder="邮箱（仅博主可见）">-->
-                {{form.email(class = 'form-control', id = 'comment-email', placeholder = '邮箱*（仅博主可见，您可在邮件中查看回复）',oninput = 'return checkEmail()')}}
+                {{form.email(class = 'form-control', id = 'comment-email', placeholder = '邮箱*',oninput = 'return checkEmail()')}}
 
             </div><div id="email-error"></div>
             <!--<textarea class="form-control" rows="5" placeholder="写评论..."></textarea>-->
-            {{form.comment(class = 'form-control', placeholder = '写评论...', rows = 5)}}
-            <input type="submit" class="btn" id="submit-comment" value="提交评论"></input>
+            {{form.comment(class = 'form-control', placeholder = '写评论...', rows = 5, id = 'comment-content')}}
+            <input type="submit" class="btn" id="submit-comment" value="提交评论""></input>
         </form>
     </div>
 
