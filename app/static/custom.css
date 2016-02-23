@@ -106,6 +106,10 @@ body{
     /*color: #fb6857;;*/
     background: rgb(255, 255, 255);
 }
+.sidebar-tag >a:hover{
+    text-decoration: none;
+    color: #52a8bc;
+}
 .sidebar-tag-link{
     color: #fb6857;
     font-size: small;
@@ -506,6 +510,9 @@ section.archives-row-even:hover{
     width: 100%;
     color: #333;
     font-weight: bold;
+}
+#submit-comment:hover{
+    background: #b3b6bb;
 }
 .form-control{
     border-radius: 1px;

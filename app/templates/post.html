@@ -23,9 +23,13 @@
         </div>
     </div>
     <div class="comment-display">
-        {% for com in comments %}
-        {{com.content}}
-        {% endfor %}
+        {% if comments %}
+            {% for com in comments %}
+            {{com.content}}
+            {% endfor %}
+        {% else %}
+            <div>暂无评论</div>
+        {% endif %}
     </div>
     <div class="post-comment">
         <script language="JavaScript">

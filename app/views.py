@@ -187,7 +187,6 @@ def archives():
     posts = db.session.query(Post).order_by(db.desc(Post.id)).all()
     return render_template('archives.html',
                            title = 'archives.html',
-                           series = series,
                            posts = posts)
 
 @app.route('/archives/<tag>')
