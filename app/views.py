@@ -185,15 +185,17 @@ def post(post_id):
 @app.route('/archives')
 def archives():
     posts = db.session.query(Post).order_by(db.desc(Post.id)).all()
+    # 获取键为tag_id，值为对应标签的文章的列表的字典
+    tag_posts = defaultdict(list)
+    for i in range(1, db.session.query(Tag).count()+1):
+        # s = db.session.query(PostTagRel).filter((PostTagRel.tag_id).like('6%')).all()
+        tag_posts[i] = db.session.query(Post).join(PostTagRel).filter((PostTagRel.tag_id).like(str(i) + '%')).all()
+        # dict= sorted(dic.iteritems(), key=lambda d:d[1], reverse = True)
     return render_template('archives.html',
                            title = 'archives.html',
-                           posts = posts)
+                           posts = posts,
+                           tag_posts = tag_posts)
 
-@app.route('/archives/<tag>')
-def archives_tag(tag):
-    return render_template('archives.html',
-                           title = str(tag),
-                           post = post)
 
 @app.route('/register',methods= ['GET','POST'])
 def register():

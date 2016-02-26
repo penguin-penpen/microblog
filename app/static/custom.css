@@ -480,6 +480,19 @@ section.archives-row-even:hover{
     font-size: medium;
     padding: 10px;
 }
+.tag-archives-row{
+    height: 40px;
+    background: rgba(255,255,255,0.7);
+    margin-bottom: 0.2em;
+    border-left: 0.3em solid #ccc;
+    padding-right: 30px;
+
+}
+.tag-archives-title{
+    padding-left: 30px;
+    color: #52a8bc;
+    font-size: 20px;
+}
 .comment-display{
     border-top: solid 1px lightgray;
     margin: 20px;

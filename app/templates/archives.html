@@ -7,25 +7,43 @@
     <div class="archives-header">
         <h1>Archives</h1>
         <div class="archives-order-by">
-            <button class="btn archives-order-time" id="order-by-time">按时间</button>
+            <button class="btn archives-order-time" id="order-by-time" onclick="return changeOrder()">按时间</button>
             <div class="post-header-buttom-divider">|</div>
-            <button class="btn archives-order-tag" id="order-by-tag">按类别</button>
+            <button class="btn archives-order-tag" id="order-by-tag" onclick="return changeOrder()">按类别</button>
         </div>
     </div>
     <div class="archives-content">
-        {% for post in posts %}
-        {% if(post.id%2 == 1) %}
-        <section class="archives-row-odd">
-            <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
-            <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
-        </section>
-        {% else %}
-        <section class="archives-row-even">
-            <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
-            <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
-        </section>
-        {% endif %}
-        {% endfor %}
+        <!-- 时间排序-->
+        <div id="time-ordered">
+            {% for post in posts %}
+            {% if(post.id%2 == 1) %}
+            <section class="archives-row-odd">
+                <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
+                <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
+            </section>
+            {% else %}
+            <section class="archives-row-even">
+                <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
+                <div class="archives-timestamp">{{post.timestamp[:10]}}</div>
+            </section>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <!-- 类别排序-->
+        <div id="tag-ordered">
+            {% for key,postlist in tag_posts.items() %}
+            <div class="archives-tag">
+                {{g.all_tags[key-1][0]}}
+            </div>
+            {% for post in postlist %}
+            <div class="tag-archives-row">
+                <div class="tag-archives-title">
+                    <div class="archives-title"><a href={{url_for('post', post_id = post.id)}}>{{post.title}}</a> </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 
 </div>

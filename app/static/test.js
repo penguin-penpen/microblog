@@ -3,6 +3,7 @@
  */
 
 $(document).ready(function(){//DOM的onload事件
+    $("#tag-ordered").hide();
     $(window).scroll( function() {//定义滚动条位置改变时触发的事件。
         //回到顶部按钮
         if (getScrollTop() > 1000) {//当滚动条离开顶端时，显示"回到顶部"。这里写20的原因是，"回到顶端"按钮也不是需要马上出现，根据自己的需求 而设置。
@@ -31,8 +32,6 @@ $(document).ready(function(){//DOM的onload事件
     });
 
 });
-
-
 
 //获取滚动条的位置
 function getScrollTop() {
@@ -73,4 +72,22 @@ function getSP(){
     return top;
     //left : document.documentElement.scrollLeft || document.body.scrollLeft;
 
+}
+
+/*
+* 归档页面按时间或按类别排序按钮
+*/
+function changeOrder(){
+    //按时间排序，直接去archives页面内容
+    $("#order-by-time").click(function(){
+        //alert("show");
+        $("#time-ordered").show();
+        $("#tag-ordered").hide();
+    });
+
+    $("#order-by-tag").click(function(){
+        //alert("show");
+        $("#time-ordered").hide();
+        $("#tag-ordered").show();
+    });
 }
